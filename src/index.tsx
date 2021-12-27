@@ -20,7 +20,7 @@ const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName);
 function ContextProviders({ children }: { children?: React.ReactNode }) {
   const { language } = useLanguage();
   return (
-    <ConfigProvider locale={ANTD_LOCAL[language]} autoInsertSpaceInButton={false} prefixCls="demo">
+    <ConfigProvider locale={ANTD_LOCAL[language]} autoInsertSpaceInButton={false} prefixCls="aelf">
       <AElfContractProvider>
         <ModalProvider>{children}</ModalProvider>
       </AElfContractProvider>

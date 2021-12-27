@@ -1,0 +1,40 @@
+
+.aelf-btn-primary {
+  border-radius: 2px;
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus,
+  &:disabled:active {
+    background-color: var(--ant-primary-disabled-color);
+    color: white;
+    box-shadow: none !important;
+  }
+  &:hover {
+    color: white;
+    background-color: var(--ant-primary-button-hover);
+  }
+  &:focus {
+    color: white;
+    background-color: var(--ant-primary-button-clicked);
+  }
+}
+
+.ant-btn-default {
+  border-radius: 2px;
+  border: 1px solid var(--ant-primary-color);
+  color: var(--ant-primary-color);
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus,
+  &:disabled:active {
+    background-color: transparent;
+    color: var(--ant-primary-disabled-color);
+  }
+  &:hover {
+    color: var(--ant-primary-button-hover);
+    border: 1px solid var(--ant-primary-button-hover);
+  }
+  &:focus {
+    color: var(--ant-primary-button-clicked);
+  }
+}
