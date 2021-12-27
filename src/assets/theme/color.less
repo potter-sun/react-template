@@ -1,24 +1,23 @@
-@import './const.less';
-
-.l-color {
+@import './constants.less';
+html {
   background: @bg4;
-  --aelf-brand-primary: @blue1;
-  --aelf-brand-light: @blue2;
-  --aelf-brand-blue: @blue3;
-  --aelf-bg-navigation: @bg1;
-  --aelf-bg-page: @bg2;
-  --aelf-bg-page-dark: @bg3;
-  // --aelf-bg-card: @bg4;
-  --aelf-text-primary: @text1;
-  --aelf-text-secondary: @text2;
-  --aelf-text-tertiary: @text3;
-  --aelf-text-disable: @text4;
-  --aelf-line-box: @line1;
-  --aelf-line-btn: @line2;
+  --@{app-prefix}-brand-primary: @blue1;
+  --@{app-prefix}-brand-light: @blue2;
+  --@{app-prefix}-brand-blue: @blue3;
+  --@{app-prefix}-bg-navigation: @bg1;
+  --@{app-prefix}-bg-page: @bg2;
+  --@{app-prefix}-bg-page-dark: @bg3;
+  // --@{app-prefix}-bg-card: @bg4;
+  --@{app-prefix}-text-primary: @text1;
+  --@{app-prefix}-text-secondary: @text2;
+  --@{app-prefix}-text-tertiary: @text3;
+  --@{app-prefix}-text-disable: @text4;
+  --@{app-prefix}-line-box: @line1;
+  --@{app-prefix}-line-btn: @line2;
 }
 
-.d-color {
-  --aelf-red-color: green;
-  --aelf-primary-color: red;
-  --aelf-primary-color-hover: red;
+html[data-theme='dark'] {
+  --@{app-prefix}-red-color: green;
+  --@{app-prefix}-primary-color: red;
+  --@{app-prefix}-primary-color-hover: red;
 }
