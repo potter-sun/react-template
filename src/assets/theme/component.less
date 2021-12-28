@@ -1,42 +1,69 @@
+/** button */
 .@{ant-prefix}-btn {
+  background: ~'var(--@{app-prefix}-bg-btn-default)';
   border-radius: 12px;
   font-weight: 600;
   font-family: Poppins;
-  color: var(e('--@{app-prefix}-text-primary'));
-}
-.@{ant-prefix}-btn-primary {
-  background: var(e('--@{app-prefix}-bg-btn'));
-  border: none;
-  &:disabled,
-  &:disabled:hover,
-  &:disabled:focus,
-  &:disabled:active {
-    background-color: var(e('--@{app-prefix}-bg-btn-disable'));
-    color: rgba(255, 255, 255, 0.4);
-    box-shadow: none !important;
-  }
-  &:hover {
-    background-color: var(e('--@{app-prefix}-bg-btn-hover'));
-  }
-  &:focus {
-    background-color: var(e('--@{app-prefix}-bg-btn-hover'));
-  }
-}
-
-.@{ant-prefix}-btn-default {
-  background-color: var(e('--@{app-prefix}-bg-btn-default'));
+  color: ~'var(--@{app-prefix}-text-primary)';
   border: 1px solid rgba(255, 255, 255, 0.8);
   &:disabled,
   &:disabled:hover,
   &:disabled:focus,
   &:disabled:active {
-    background-color: var(e('--@{app-prefix}-bg-btn-default-hover'));
-    color: var(e('--@{app-prefix}-text-secondary'));
+    background: ~'var(--@{app-prefix}-bg-btn-default-hover)';
+    color: ~'var(--@{app-prefix}-text-secondary)';
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
   &:hover,
   &:focus {
-    background-color: var(e('--@{app-prefix}-bg-btn-default-hover'));
+    background: ~'var(--@{app-prefix}-bg-btn-default-hover)';
+    color: ~'var(--@{app-prefix}-text-primary)';
     border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+}
+
+.@{ant-prefix}-btn-primary {
+  background: ~'var(--@{app-prefix}-bg-btn)';
+  border: none;
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus,
+  &:disabled:active {
+    background: ~'var(--@{app-prefix}-bg-btn-disable)';
+    color: rgba(255, 255, 255, 0.4);
+    box-shadow: none !important;
+  }
+  &:hover,
+  &:focus {
+    border: none;
+    background: ~'var(--@{app-prefix}-bg-btn-hover)';
+  }
+}
+
+/**  */
+.@{app-prefix}-input {
+  background: ~'var(--@{app-prefix}-bg-page)';
+  border: ~'var(--@{app-prefix}-border)';
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: ~'var(--@{app-prefix}-text-primary)';
+
+  &:hover,
+  &:focus {
+    border: ~'var(--@{app-prefix}-border-hover)';
+    box-shadow: ~'var(--@{app-prefix}-box-hover)';
+  }
+  &::placeholder {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus,
+  &:disabled:active {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.4);
   }
 }

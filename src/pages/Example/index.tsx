@@ -1,9 +1,10 @@
-import { Button } from 'antd';
+import { Button, Dropdown, Input, Menu } from 'antd';
 import { useAElf } from 'contexts/useAElf';
 import { useAElfContract } from 'contexts/useAElfContract/hooks';
 import { basicModalView } from 'contexts/useModal/actions';
 import { useModalDispatch } from 'contexts/useModal/hooks';
 import { useActiveWeb3React } from 'hooks/web3';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { useEffect } from 'react';
 import './styles.less';
 const html = window.document.getElementsByTagName('html')[0];
@@ -23,10 +24,25 @@ export default function Example() {
   useEffect(() => {
     balance();
   });
+
+  const menu = (
+    <Menu>
+      <Menu.Item key="1" icon={<UserOutlined />}>
+        1st menu item
+      </Menu.Item>
+      <Menu.Item key="2" icon={<UserOutlined />}>
+        2nd menu item
+      </Menu.Item>
+      <Menu.Item key="3" icon={<UserOutlined />}>
+        3rd menu item
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <div>
       <Button
         type="primary"
+        disabled
         onClick={() => {
           !account
             ? modalDispatch(basicModalView.setWalletModal.actions(true))
@@ -35,7 +51,7 @@ export default function Example() {
         {account ? account : 'Connect'}
       </Button>
       <Button
-        type="primary"
+        type="default"
         onClick={() => {
           if (!html.getAttribute('data-theme') || html.getAttribute('data-theme') === 'light') {
             html.setAttribute('data-theme', 'dark');
@@ -52,6 +68,14 @@ export default function Example() {
         }}>
         {address ? address : 'Connect aelf'}
       </Button>
+
+      <Input placeholder="wodeee" />
+      <Input value="wodeee" disabled />
+      <Dropdown overlay={menu}>
+        <Button>
+          Button <DownOutlined />
+        </Button>
+      </Dropdown>
       {chainId}
       <div className="test-class" />
       <h1 className="test-class">ASDASDADSD</h1>
