@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Layout className="aelf-marketplace">
           <Header />
-          <Layout.Content>
+          <Layout.Content className="aelf-marketplace-content">
             <Routes>
               {routes.map((route) => {
                 return <Route key={route.path} path={route.path} element={<route.element />} />;
