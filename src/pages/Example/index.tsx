@@ -9,15 +9,14 @@ import { useEffect } from 'react';
 import './styles.less';
 const html = window.document.getElementsByTagName('html')[0];
 export default function Example() {
-  const { account } = useActiveWeb3React();
+  const { account, chainId } = useActiveWeb3React();
   const modalDispatch = useModalDispatch();
-  const [{ address, chainId }, { Connect, DisConnect }] = useAElf();
-  const aelfTokenContract = useAElfContract('tokenContract');
+  const tokenContract = useAElfContract('JRmBduh4nXWi1aXgdUsj5gJrzeZb2LxmrAbf7W99faZSvoAaE');
   const balance = async () => {
-    if (!aelfTokenContract) return;
-    const req = await aelfTokenContract?.callViewMethod('GetBalance', {
+    if (!tokenContract) return;
+    const req = await tokenContract?.callViewMethod('GetBalance', {
       symbol: 'ELF',
-      owner: address,
+      owner: '3DHPLvZudScbRTTEkYBeSYGYx7kHh6udEgwR7DfH2dwFK9kBa',
     });
     console.log(req, '=====req');
   };
@@ -60,13 +59,6 @@ export default function Example() {
           }
         }}>
         color
-      </Button>
-      <Button
-        type="primary"
-        onClick={() => {
-          !address ? Connect() : DisConnect();
-        }}>
-        {address ? address : 'Connect aelf'}
       </Button>
 
       <Input placeholder="wodeee" />
