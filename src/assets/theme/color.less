@@ -1,23 +1,35 @@
 @import './constants.less';
+
 html {
-  background: @bg4;
   --@{app-prefix}-brand-primary: @blue1;
   --@{app-prefix}-brand-light: @blue2;
   --@{app-prefix}-brand-blue: @blue3;
+
   --@{app-prefix}-bg-navigation: @bg1;
   --@{app-prefix}-bg-page: @bg2;
   --@{app-prefix}-bg-page-dark: @bg3;
-  // --@{app-prefix}-bg-card: @bg4;
+  --@{app-prefix}-bg-card: @bg4;
+  --@{app-prefix}-bg-btn: @bg5;
+  --@{app-prefix}-bg-btn-disable: @bg6;
+  --@{app-prefix}-bg-btn-hover: @bg7;
+  --@{app-prefix}-bg-btn-default: @bg2;
+  --@{app-prefix}-bg-btn-default-hover: @bg8;
+  --@{app-prefix}-bg-btn-default-disable: @bg8;
+
   --@{app-prefix}-text-primary: @text1;
   --@{app-prefix}-text-secondary: @text2;
   --@{app-prefix}-text-tertiary: @text3;
   --@{app-prefix}-text-disable: @text4;
+
   --@{app-prefix}-line-box: @line1;
   --@{app-prefix}-line-btn: @line2;
 }
 
 html[data-theme='dark'] {
-  --@{app-prefix}-red-color: green;
-  --@{app-prefix}-primary-color: red;
-  --@{app-prefix}-primary-color-hover: red;
+  --@{app-prefix}-brand-primary: @blue1;
+  // --@{app-prefix}-red-color: green;
+  // --@{app-prefix}-primary-color: red;
+  // --@{app-prefix}-primary-color-hover: red;
+  // --@{app-prefix}-brand-light: green;
+  // --@{app-prefix}-bg-page: red;
 }

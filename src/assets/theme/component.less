@@ -1,40 +1,42 @@
-
-.aelf-btn-primary {
-  border-radius: 2px;
+.@{ant-prefix}-btn {
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: Poppins;
+  color: var(e('--@{app-prefix}-text-primary'));
+}
+.@{ant-prefix}-btn-primary {
+  background: var(e('--@{app-prefix}-bg-btn'));
+  border: none;
   &:disabled,
   &:disabled:hover,
   &:disabled:focus,
   &:disabled:active {
-    background-color: var(--ant-primary-disabled-color);
-    color: white;
+    background-color: var(e('--@{app-prefix}-bg-btn-disable'));
+    color: rgba(255, 255, 255, 0.4);
     box-shadow: none !important;
   }
   &:hover {
-    color: white;
-    background-color: var(--ant-primary-button-hover);
+    background-color: var(e('--@{app-prefix}-bg-btn-hover'));
   }
   &:focus {
-    color: white;
-    background-color: var(--ant-primary-button-clicked);
+    background-color: var(e('--@{app-prefix}-bg-btn-hover'));
   }
 }
 
-.ant-btn-default {
-  border-radius: 2px;
-  border: 1px solid var(--ant-primary-color);
-  color: var(--ant-primary-color);
+.@{ant-prefix}-btn-default {
+  background-color: var(e('--@{app-prefix}-bg-btn-default'));
+  border: 1px solid rgba(255, 255, 255, 0.8);
   &:disabled,
   &:disabled:hover,
   &:disabled:focus,
   &:disabled:active {
-    background-color: transparent;
-    color: var(--ant-primary-disabled-color);
+    background-color: var(e('--@{app-prefix}-bg-btn-default-hover'));
+    color: var(e('--@{app-prefix}-text-secondary'));
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  &:hover {
-    color: var(--ant-primary-button-hover);
-    border: 1px solid var(--ant-primary-button-hover);
-  }
+  &:hover,
   &:focus {
-    color: var(--ant-primary-button-clicked);
+    background-color: var(e('--@{app-prefix}-bg-btn-default-hover'));
+    border: 1px solid rgba(255, 255, 255, 0.8);
   }
 }

@@ -5,6 +5,7 @@ import { basicModalView } from 'contexts/useModal/actions';
 import { useModalDispatch } from 'contexts/useModal/hooks';
 import { useActiveWeb3React } from 'hooks/web3';
 import { useEffect } from 'react';
+import './styles.less';
 const html = window.document.getElementsByTagName('html')[0];
 export default function Example() {
   const { account } = useActiveWeb3React();
@@ -53,6 +54,7 @@ export default function Example() {
       </Button>
       {chainId}
       <div className="test-class" />
+      <h1 className="test-class">ASDASDADSD</h1>
     </div>
   );
 }
