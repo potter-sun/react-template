@@ -1,0 +1,36 @@
+@import '../../assets/theme/variable.less';
+
+.tabs-header {
+  .@{app-prefix}-tabs-nav {
+    margin: 0;
+    &::before {
+      border-bottom: 1px solid @border3;
+    }
+  }
+  .@{app-prefix}-tabs-tab .@{app-prefix}-tabs-tab-btn {
+    color: @text1;
+    font-size: 18px;
+    line-height: 27px;
+    padding: 0 33px;
+  }
+  .@{app-prefix}-tabs-tab.@{app-prefix}-tabs-tab-active .@{app-prefix}-tabs-tab-btn {
+    color: @text1;
+    font-size: 18px;
+    line-height: 27px;
+    padding: 0 33px;
+  }
+  .@{app-prefix}-tabs-tab {
+    padding: 28px 0 24px;
+  }
+  .@{app-prefix}-tabs-ink-bar {
+    background: @blue1;
+    border-radius: 4px 4px 0px 0px;
+  }
+
+  .tabs-title {
+    .@{app-prefix}-space-item {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
