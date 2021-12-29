@@ -1,9 +1,9 @@
 import { Layout } from 'antd';
 import clsx from 'clsx';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import './ItemsLayout.less';
 import TabsHeader, { TabNavType } from '../TabsHeader/TabsHeader';
-
+import ItemsSider from './ItemsSider/ItemsSider';
 export interface ItemsLayoutProps {
   tabNav: TabNavType[];
 }
@@ -17,8 +17,8 @@ export default function ItemsLayout({ tabNav }: ItemsLayoutProps) {
       <Layout.Header>
         <TabsHeader tabNav={tabNav} onChange={tabsChange} />
       </Layout.Header>
-      <Layout>
-        <Layout.Sider>Sider</Layout.Sider>
+      <Layout className={clsx('collection-items-content')}>
+        <ItemsSider />
         <Layout.Content>Content</Layout.Content>
       </Layout>
     </Layout>
