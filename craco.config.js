@@ -33,6 +33,7 @@ module.exports = {
             modifyVars: {
               '@app-prefix': REACT_APP_PREFIX,
               '@ant-prefix': REACT_APP_PREFIX,
+              '@primary-color': '#5e67ff',
             },
             javascriptEnabled: true,
           },

@@ -1,0 +1,24 @@
+@import '../../../assets/theme/variable.less';
+.items-sider-wrapper {
+  padding-top: 64px;
+  border-right: 1px solid @border3;
+  height: 100%;
+  .@{app-prefix}-layout-sider-trigger,
+  .@{app-prefix}-menu-submenu-title {
+    background: none;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    height: 64px;
+    margin: 0;
+  }
+  .@{app-prefix}-layout-sider-trigger {
+    top: 0;
+    position: absolute;
+    border-bottom: 1px solid @border3;
+  }
+  .collapsed-wrapper {
+    padding: 0 24px;
+    height: 100%;
+  }
+}

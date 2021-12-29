@@ -1,0 +1,33 @@
+@import '../../../assets/theme/variable.less';
+.items-sider-menu.@{app-prefix}-menu {
+  background: none;
+  border-right: none;
+  color: ~'var(--@{app-prefix}-text-primary)';
+  .@{app-prefix}-menu-submenu {
+    border-bottom: 1px solid @border3;
+  }
+  .@{app-prefix}-menu-submenu-selected,
+  .@{app-prefix}-menu-submenu-active {
+    color: ~'var(--@{app-prefix}-text-primary)';
+  }
+  .@{app-prefix}-menu-submenu-title {
+    height: 64px;
+    padding: 0 24px;
+    &:hover {
+      color: ~'var(--@{app-prefix}-text-primary)';
+      .@{app-prefix}-menu-submenu-arrow {
+        color: @text1;
+      }
+    }
+    .@{app-prefix}-menu-submenu-arrow {
+      color: @text2;
+      right: 25px;
+    }
+  }
+  .@{app-prefix}-menu-sub.@{app-prefix}-menu-inline {
+    background: ~'var(--@{app-prefix}-bg-page-dark)';
+  }
+  .padding24 {
+    padding: 24px;
+  }
+}
