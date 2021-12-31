@@ -13,18 +13,25 @@ export interface TabsHeaderProps {
 export default function TabsHeader({ tabNav, onChange, ...props }: TabsHeaderProps & TabsProps) {
   return (
     <Tabs defaultActiveKey={tabNav?.[0]?.key} centered className={'tabs-header'} onChange={onChange} {...props}>
-      {tabNav.map((item) => (
-        <Tabs.TabPane
-          {...item}
-          tab={
-            <Space className="tabs-title" size={15}>
-              {item.icon ?? null}
-              {item.title}
-            </Space>
-          }
-          key={item.key}
-        />
-      ))}
+      {tabNav.map((item) => {
+        let icon = item.icon;
+        if (typeof item.icon === 'string') {
+          icon = <img src={item.icon}></img>;
+        }
+
+        return (
+          <Tabs.TabPane
+            {...item}
+            tab={
+              <Space className="tabs-title" size={15}>
+                {icon ?? null}
+                {item.title}
+              </Space>
+            }
+            key={item.key}
+          />
+        );
+      })}
     </Tabs>
   );
 }

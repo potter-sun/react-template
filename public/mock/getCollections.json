@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Virtual Worlds",
+    "key": "VW",
+    "icon": "http://localhost:3000/mock/images/Vector.svg",
+    "collectionList": [
+      {
+        "id": "RAZIEL",
+        "title": "RAZIEL",
+        "creator": "influence",
+        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
+        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
+        "avatar": "http://localhost:3000/mock/images/avatar.svg"
+      }
+    ]
+  },
+  {
+    "title": "Virtual Worlds1",
+    "key": "VW1",
+    "icon": "http://localhost:3000/mock/images/Vector.svg",
+    "collectionList": [
+      {
+        "id": "RAZIEL",
+        "title": "RAZIEL",
+        "creator": "influence",
+        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
+        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
+        "avatar": "http://localhost:3000/mock/images/avatar.svg"
+      }
+    ]
+  }
+]
