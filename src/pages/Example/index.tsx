@@ -1,5 +1,6 @@
 import { Button, Dropdown, Input, Menu } from 'antd';
 import { useAElf } from 'contexts/useAElf';
+import Network from 'components/Network';
 import { useAElfContract } from 'contexts/useAElfContract/hooks';
 import { basicModalView } from 'contexts/useModal/actions';
 import { useModalDispatch } from 'contexts/useModal/hooks';
@@ -8,6 +9,7 @@ import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { useEffect } from 'react';
 import './styles.less';
 const html = window.document.getElementsByTagName('html')[0];
+import { setThemes } from 'utils/themes';
 export default function Example() {
   const { account, chainId } = useActiveWeb3React();
   const modalDispatch = useModalDispatch();
@@ -68,6 +70,15 @@ export default function Example() {
           Button <DownOutlined />
         </Button>
       </Dropdown>
+      <Button type="primary" onClick={() => setThemes('dark')}>
+        dark
+      </Button>
+      <Button type="primary" onClick={() => setThemes('light')}>
+        light
+      </Button>
+      <Network />
+      <div className="dark-box" />
+      <div className="light-box" />
       {chainId}
       <div className="test-class" />
       <h1 className="test-class">ASDASDADSD</h1>
