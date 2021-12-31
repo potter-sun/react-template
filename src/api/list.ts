@@ -2,7 +2,13 @@ import { API_REQ_FUNCTION } from './types';
 
 export const BASE_APIS = {};
 
-export const EXPAND_APIS = {};
+export const COLLECTIONS_APIS = {
+  GET_COLLECTIONS: '/mock/getCollections.json',
+};
+
+export const EXPAND_APIS = {
+  collections: COLLECTIONS_APIS,
+};
 
 export type BASE_REQ_TYPES = {
   [x in keyof typeof BASE_APIS]: API_REQ_FUNCTION;
