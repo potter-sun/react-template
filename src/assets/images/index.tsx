@@ -4,5 +4,5 @@ import coinbaseWalletIcon from './coinbaseWalletIcon.svg';
 import nightElfIcon from './nightElf.png';
 import { ReactComponent as Menu } from './Menu.svg';
 import { ReactComponent as CollapsedIcon } from './Collapsed.svg';
-
-export { metamask, walletConnectIcon, coinbaseWalletIcon, nightElfIcon, Menu, CollapsedIcon };
+import { ReactComponent as USDIcon } from './USD.svg';
+export { metamask, walletConnectIcon, coinbaseWalletIcon, nightElfIcon, Menu, CollapsedIcon, USDIcon };

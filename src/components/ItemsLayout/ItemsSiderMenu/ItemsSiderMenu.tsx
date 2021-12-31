@@ -1,80 +1,70 @@
 import { Menu } from 'antd';
-import { useCallback, useMemo, useState } from 'react';
+import { useLayoutItems } from 'contexts/useItemsLayout';
+import { useCallback, useEffect, useState } from 'react';
 import MultipleChoice from '../components/MultipleChoice';
+import RangeSelect from '../components/RangeSelect';
 import SingleChoice from '../components/SingleChoice';
+import { FilterType, OnSiderChange } from '../types';
 import './ItemsSiderMenu.less';
 
-export enum FilterType {
-  Single,
-  Multiple,
-  Range,
-}
-export default function ItemsSiderMenu() {
+export default function ItemsSiderMenu({ onSiderChange }: { onSiderChange?: OnSiderChange }) {
+  const [filter, setFilter] = useState<{ [x: string]: string[] }>();
+
   const handleClick = useCallback((v) => {
     console.log(v);
   }, []);
-  const filterList = useMemo(
-    () => [
-      {
-        key: 'Status',
-        title: 'Status',
-        children: {
-          type: FilterType.Single,
-          data: [
-            { key: 'Buy Now', title: 'Buy Now' },
-            { key: 'My Items', title: 'My Items' },
-          ],
-        },
-      },
-      {
-        key: 'Price',
-        title: 'Price',
-        children: {
-          type: FilterType.Range,
-          // data: [
-          //   { key: 'Buy Now', title: 'Buy Now' },
-          //   { key: 'My Items', title: 'My Items' },
-          // ],
-        },
-      },
-      {
-        key: 'Chains',
-        title: 'Chains',
-        children: {
-          type: FilterType.Multiple,
-          data: [
-            { value: 'Main AELF', label: 'Main AELF' },
-            { value: 'Side tDVV', label: 'Side tDVV' },
-          ],
-        },
-      },
-    ],
-    [],
-  );
-  const SingleChoiceChange = useCallback((e) => {
-    console.log(e.target.value, 'SingleChoiceChange');
+
+  const [state] = useLayoutItems();
+  const SingleChoiceChange = useCallback((e, key) => {
+    console.log(e.target.value, key, 'SingleChoiceChange');
+    setFilter((v) => {
+      return { ...v, [key]: [e.target.value] };
+    });
   }, []);
 
-  const MultipleChoiceChange = useCallback((v) => {
-    console.log(v, 'MultipleChoiceChange');
+  const MultipleChoiceChange = useCallback((v, key) => {
+    console.log(v, key, 'MultipleChoiceChange');
+    setFilter((f) => {
+      return { ...f, [key]: v };
+    });
   }, []);
+
+  useEffect(() => {
+    onSiderChange?.(filter);
+  }, [filter, onSiderChange]);
+
   return (
     <>
       <Menu
         onClick={handleClick}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['Chains']}
+        // defaultSelectedKeys={['1']}
+        // defaultOpenKeys={[]}
         className="items-sider-menu"
         mode="inline">
-        {filterList.map((item, index) => (
+        {state?.filterList?.map((item) => (
           <Menu.SubMenu key={item.key} title={item.title}>
             {item.children && (
               <>
                 {item.children.type === FilterType.Single && (
-                  <SingleChoice dataSource={item.children.data} onChange={SingleChoiceChange} />
+                  <SingleChoice
+                    dataSource={item as any}
+                    defaultValue={filter?.[item.key]}
+                    onChange={SingleChoiceChange}
+                  />
                 )}
                 {item.children.type === FilterType.Multiple && (
-                  <MultipleChoice dataSource={item.children.data as any[]} onChange={MultipleChoiceChange} />
+                  <MultipleChoice
+                    dataSource={item as any}
+                    defaultValue={filter?.[item.key]}
+                    onChange={MultipleChoiceChange}
+                  />
+                )}
+                {item.children.type === FilterType.Range && (
+                  <RangeSelect
+                    dataSource={item as any}
+                    defaultValue={filter?.[item.key]}
+                    onChange={MultipleChoiceChange}
+                  />
                 )}
               </>
             )}

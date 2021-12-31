@@ -16,6 +16,8 @@ import AElfContractProvider from 'contexts/useAElfContract';
 
 import './index.css';
 import { prefixCls } from 'constants/misc';
+import ItemsLayoutContext from 'contexts/useItemsLayout';
+
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName);
 
 function ContextProviders({ children }: { children?: React.ReactNode }) {
@@ -36,7 +38,9 @@ ReactDOM.render(
           <ChianProvider>
             <StoreProvider>
               <ContextProviders>
-                <App />
+                <ItemsLayoutContext>
+                  <App />
+                </ItemsLayoutContext>
               </ContextProviders>
             </StoreProvider>
           </ChianProvider>
