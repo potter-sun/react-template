@@ -2,6 +2,7 @@ import { request } from 'api';
 import { useCallback, useEffect, useState } from 'react';
 
 export interface Collection {
+  id: string;
   title: string;
   creator: string;
   description: string;

@@ -23,4 +23,221 @@
   .@{app-prefix}-space-item .text-select {
     color: ~'var(--@{app-prefix}-brand-light)';
   }
+  .btn-wrap {
+    gap: 85px !important;
+    .text-btn-wrap {
+      gap: 40px !important;
+    }
+    .icon-btn-wrap {
+      gap: 42.8px !important;
+      display: flex;
+      align-items: center;
+      .aelf-space-item {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .header-account-btn,
+  .header-wallet-btn {
+    fill: white;
+    transition: all 0.3s;
+    &:hover {
+      fill: @blue2;
+    }
+  }
+}
+.overlay-header {
+  .aelf-dropdown-menu {
+    border-radius: 12px;
+    border: 1px solid @border1;
+    background: @bg2;
+    overflow: hidden;
+    padding: 0;
+    .aelf-dropdown-menu-item {
+      padding: 0 19px;
+      min-width: 137px;
+      min-height: 56px;
+      background: transparent;
+      span,
+      a {
+        display: flex;
+        align-items: center;
+        color: @text1;
+        transition: all 0.3s;
+      }
+      svg {
+        fill: white;
+        transition: all 0.3s;
+        margin-right: 11px;
+      }
+      &:hover {
+        background: transparent;
+        span,
+        a {
+          color: @blue2;
+        }
+        svg {
+          fill: @blue2;
+        }
+      }
+    }
+  }
+}
+.overlay-account {
+  .aelf-dropdown-menu {
+    margin-top: -6px;
+    transform: translateX(-5px);
+    .aelf-dropdown-menu-item {
+      height: 56px;
+      padding: 0 24px 0 19px;
+      span,
+      a {
+        font-size: 16px;
+        line-height: 24px;
+        height: 100%;
+      }
+      svg {
+        width: 18px;
+      }
+      &:hover {
+        background: transparent;
+        span,
+        a {
+          color: @blue2;
+        }
+        svg {
+          fill: @blue2;
+        }
+      }
+    }
+  }
+}
+.overlay-wallet {
+  .aelf-dropdown-menu {
+    min-width: 304px;
+    margin-top: -6px;
+    padding: 0 16px;
+    .aelf-dropdown-menu-item {
+      background: transparent;
+      padding: 16px 0;
+      border-bottom: 1px solid @border1;
+      &:last-of-type {
+        border: none;
+      }
+    }
+  }
+  .user-info {
+    display: flex;
+    img {
+      width: 48px;
+      height: 48px;
+      margin-right: 12px;
+    }
+    svg {
+      margin-right: 12px;
+    }
+    .username {
+      font-size: 16px;
+      color: @text1;
+    }
+    .address {
+      font-size: 12px;
+      color: @text2;
+    }
+  }
+  .balance-wrap {
+    width: 100%;
+    .aelf-collapse {
+      background: transparent;
+      .aelf-collapse-item {
+        border: none;
+      }
+    }
+    .total-balance,
+    .token-balance {
+      border: 1px solid @border1;
+      overflow: hidden;
+      border-radius: 11px;
+      margin-bottom: 16px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .total-balance {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      width: 100%;
+      height: 90px;
+      padding: 16px 0;
+      color: @text1;
+      border: 1px solid @border1;
+      p,
+      span {
+        color: @text1;
+        text-align: center;
+      }
+      .title {
+        font-size: 12px;
+        font-weight: 500;
+        height: 18px;
+        line-height: 18px;
+        color: @text2;
+      }
+      .value {
+        font-size: 24px;
+        line-height: 24px;
+        color: @text1;
+        font-weight: 600;
+      }
+    }
+    .token-balance {
+      .aelf-collapse-item-active {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+      .aelf-collapse-header {
+        padding: 16px;
+      }
+      .panel-header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .icon {
+          width: 32px;
+          height: 32px;
+          background: @blue2;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          margin-right: 12px;
+        }
+        .name {
+          font-size: 20px;
+          font-weight: 500;
+          color: @text1;
+        }
+        .balance {
+          flex: 1;
+          text-align: right;
+          padding-right: 21px;
+          p {
+            &:first-of-type {
+              font-weight: 600;
+              font-size: 16px;
+              color: @text1;
+            }
+            &:last-of-type {
+              font-size: 12px;
+              color: @text2;
+            }
+          }
+        }
+      }
+    }
+  }
 }

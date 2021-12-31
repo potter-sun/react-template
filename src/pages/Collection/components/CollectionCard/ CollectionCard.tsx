@@ -1,9 +1,11 @@
 import { Card } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import { collectionBadge } from '../../../../assets/images';
 import './CollectionCard.less';
 
 export type Collection = {
   option: {
+    id: string;
     background: string;
     avatar: string | undefined;
     title: string;
@@ -28,11 +30,10 @@ const TitlePanel = ({ title, hasBadge, creator }: { title: string; hasBadge?: bo
 
 const { Meta } = Card;
 export default function CollectionCard(data: Collection) {
-  console.log('>>>', data);
-
-  const { background, avatar, title, creator, description } = data.option;
+  const navigate = useNavigate();
+  const { background, avatar, title, creator, description, id } = data.option;
   return (
-    <div className="collection-card">
+    <div className="collection-card" onClick={() => navigate(`/explore-items?collectId=${id}`)}>
       <Card cover={<img alt="collectionImg" src={background} />}>
         <Meta
           avatar={<img src={avatar}></img>}
