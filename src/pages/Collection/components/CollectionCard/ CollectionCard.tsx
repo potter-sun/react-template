@@ -33,7 +33,7 @@ export default function CollectionCard(data: Collection) {
   const navigate = useNavigate();
   const { background, avatar, title, creator, description, id } = data.option;
   return (
-    <div className="collection-card" onClick={() => navigate(`/explore-items?collectId=${id}`)}>
+    <div className="collection-card" onClick={() => navigate(`/explore-items/${id}`)}>
       <Card cover={<img alt="collectionImg" src={background} />}>
         <Meta
           avatar={<img src={avatar}></img>}

@@ -5,6 +5,8 @@ import TabsHeader from 'components/TabsHeader/TabsHeader';
 import { useCollections } from './Hooks/useCollections';
 import { useNavigate } from 'react-router-dom';
 import { useCallback, useLayoutEffect, useMemo } from 'react';
+import { Col, Row } from 'antd';
+import clsx from 'clsx';
 
 export default function Collections() {
   const navigate = useNavigate();
@@ -12,11 +14,16 @@ export default function Collections() {
   const collectionList = useCollections();
 
   const children = (collectionList: Collection['option'][]) => {
+    const length = collectionList.length;
     return (
-      <div className="collection-pane">
-        {collectionList.map((item) => (
-          <CollectionCard key={item.title} option={item}></CollectionCard>
-        ))}
+      <div className="flex-center">
+        <Row gutter={[16, 24]} justify="start" className={clsx('collection-pane', length === 1 && 'flex-center')}>
+          {collectionList.map((item) => (
+            <Col xs={24} sm={24} md={24} lg={12} xl={8} xxl={8} key={item.title} className="grid-collection">
+              <CollectionCard key={item.title} option={item}></CollectionCard>
+            </Col>
+          ))}
+        </Row>
       </div>
     );
   };

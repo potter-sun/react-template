@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import metamask from './metamask.png';
 import nightElfIcon from './nightElf.png';
+import { ReactComponent as ELF } from './ELF.svg';
+import { ReactComponent as USDT } from './USDT.svg';
+import { ReactComponent as AELF } from './AELF.svg';
 import collectionBadge from './collectionBadge.svg';
 import { ReactComponent as User } from './user.svg';
 import { ReactComponent as Menu } from './Menu.svg';
@@ -17,6 +20,9 @@ import { ReactComponent as CollapsedIcon } from './Collapsed.svg';
 import { ReactComponent as USDIcon } from './USD.svg';
 
 export {
+  ELF,
+  USDT,
+  AELF,
   logo,
   User,
   Menu,
