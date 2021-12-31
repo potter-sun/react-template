@@ -14,6 +14,7 @@ import { ReactComponent as Setting } from './setting.svg';
 import coinbaseWalletIcon from './coinbaseWalletIcon.svg';
 import { ReactComponent as LogoutBtn } from './logoutBtn.svg';
 import { ReactComponent as CollapsedIcon } from './Collapsed.svg';
+import { ReactComponent as USDIcon } from './USD.svg';
 
 export {
   logo,
@@ -32,4 +33,5 @@ export {
   collectionBadge,
   walletConnectIcon,
   coinbaseWalletIcon,
+  USDIcon,
 };

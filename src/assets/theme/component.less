@@ -48,6 +48,14 @@
   border-radius: 12px;
   color: ~'var(--@{app-prefix}-text-primary)';
 
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   &:hover,
   &:focus {
     border: ~'var(--@{app-prefix}-border-hover)';
@@ -65,5 +73,65 @@
   &:disabled:active {
     background: rgba(255, 255, 255, 0.04);
     color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.@{app-prefix}-select {
+  color: ~'var(--@{app-prefix}-text-primary)';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  .@{app-prefix}-select-arrow {
+    color: @text2;
+  }
+}
+
+.@{app-prefix}-select-single.@{app-prefix}-select-open .@{app-prefix}-select-selection-item {
+  color: ~'var(--@{app-prefix}-text-primary)';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+.aelf-select-single:not(.aelf-select-customize-input) .aelf-select-selector {
+  height: 56px;
+}
+
+.@{app-prefix}-select:not(.@{app-prefix}-select-customize-input) .@{app-prefix}-select-selector {
+  background-color: transparent;
+  border: 1px solid @line1;
+  border-radius: 12px;
+}
+
+.@{app-prefix}-select:not(.@{app-prefix}-select-disabled):hover .@{app-prefix}-select-selector,
+.@{app-prefix}-select-focused:not(.@{app-prefix}-select-disabled).@{app-prefix}-select:not(.@{app-prefix}-select-customize-input)
+  .@{app-prefix}-select-selector {
+  border: ~'var(--@{app-prefix}-border-hover)';
+  box-shadow: ~'var(--@{app-prefix}-box-hover)';
+}
+
+.@{app-prefix}-select-dropdown {
+  background-color: @bg2;
+  border: 1px solid @line1;
+  box-sizing: border-box;
+  border-radius: 12px;
+  .@{app-prefix}-select-item {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: @text2;
+    padding: 16px;
+    border-bottom: 1px solid #3e4a59;
+  }
+  .@{app-prefix}-select-item-option-selected:not(.@{app-prefix}-select-item-option-disabled) {
+    background-color: transparent;
+    color: ~'var(--@{app-prefix}-text-primary)';
+  }
+  .@{app-prefix}-select-item-option-active:not(.@{app-prefix}-select-item-option-disabled) {
+    background-color: transparent;
+    color: @blue2;
+  }
+  .@{app-prefix}-select-item-option-active {
+    background-color: transparent;
+    color: @blue2;
   }
 }

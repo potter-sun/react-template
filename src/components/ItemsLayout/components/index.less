@@ -64,4 +64,57 @@
       }
     }
   }
+  .@{app-prefix}-checkbox-checked .@{app-prefix}-checkbox-inner {
+    background-color: @blue1;
+  }
+}
+
+.range-select {
+  // .aelf-select-single:not(.aelf-select-customize-input) .aelf-select-selector {
+  //   padding: 12px 17px 12px 20px;
+  //   height: auto;
+  // }
+  // .aelf-select-selection-item {
+  //   font-weight: 500;
+  //   font-size: 16px;
+  //   line-height: 24px;
+  // }
+  // .aelf-select-single:not(.aelf-select-customize-input) .aelf-select-selector .aelf-select-selection-search-input {
+  //   height: auto;
+  // }
+
+  .range-wrapper {
+    margin-top: 16px;
+    .@{app-prefix}-input {
+      padding: 16px;
+    }
+    .text {
+      margin: 0 12px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: @text1;
+    }
+  }
+
+  .pricing {
+    width: 100%;
+    height: auto;
+    padding: 15px 20px;
+    justify-content: start;
+    & > span {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: @text1;
+      margin-left: 12px;
+    }
+  }
+
+  .range-select-apply {
+    width: 100%;
+    margin-top: 16px;
+    padding: 16px 0;
+    height: auto;
+  }
 }
