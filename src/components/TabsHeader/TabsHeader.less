@@ -15,9 +15,6 @@
   }
   .@{app-prefix}-tabs-tab.@{app-prefix}-tabs-tab-active .@{app-prefix}-tabs-tab-btn {
     color: @text1;
-    font-size: 18px;
-    line-height: 27px;
-    padding: 0 33px;
   }
   .@{app-prefix}-tabs-tab {
     padding: 28px 0 24px;
@@ -31,6 +28,26 @@
     .@{app-prefix}-space-item {
       display: flex;
       align-items: center;
+    }
+  }
+}
+
+.mobile-tabs-header {
+  .aelf-tabs-ink-bar {
+    height: 0.2857rem !important;
+  }
+  .aelf-tabs-tab {
+    padding: 2.1429rem 0 1.1429rem;
+    opacity: 0.6;
+    &.aelf-tabs-tab-active {
+      opacity: 1;
+    }
+    .aelf-tabs-tab-btn {
+      font-size: 1rem;
+      font-weight: 600;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      padding: 0 1.1429rem;
     }
   }
 }

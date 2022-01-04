@@ -1,0 +1,202 @@
+@import '../../../../assets/theme/variable.less';
+
+.overlay-header {
+  .aelf-menu {
+    border-radius: 12px;
+    border: 1px solid @border1;
+    background: @bg2;
+    overflow: hidden;
+    padding: 0;
+    .aelf-menu-item {
+      display: flex;
+      margin: 0;
+      padding: 0 19px;
+      min-width: 137px;
+      min-height: 56px;
+      background: transparent;
+      height: auto;
+      span,
+      a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        color: @text1;
+        transition: all 0.3s;
+      }
+      svg {
+        fill: white;
+        transition: all 0.3s;
+        margin-right: 11px;
+      }
+      &:hover {
+        background: transparent;
+        span,
+        a {
+          color: @blue2;
+        }
+        svg {
+          fill: @blue2;
+        }
+      }
+    }
+  }
+}
+.overlay-wallet {
+  .aelf-menu {
+    min-width: 304px;
+    padding: 0 16px;
+    .aelf-menu-item {
+      background: transparent;
+      padding: 16px 0;
+      border-bottom: 1px solid @border1;
+      &:last-of-type {
+        border: none;
+      }
+    }
+  }
+  .user-info {
+    display: flex;
+    img {
+      width: 48px;
+      height: 48px;
+      margin-right: 12px;
+    }
+    svg {
+      margin-right: 12px;
+    }
+    p {
+      line-height: 18px;
+    }
+    .username {
+      font-size: 16px;
+      color: @text1;
+    }
+    .address {
+      font-size: 12px;
+      color: @text2;
+    }
+  }
+  .balance-wrap {
+    width: 100%;
+    .aelf-collapse {
+      background: transparent;
+      .aelf-collapse-item {
+        border: none;
+      }
+    }
+    .total-balance,
+    .token-balance {
+      border: 1px solid @border1;
+      overflow: hidden;
+      border-radius: 11px;
+      margin-bottom: 16px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .total-balance {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      width: 100%;
+      height: 90px;
+      padding: 16px 0;
+      color: @text1;
+      border: 1px solid @border1;
+      p,
+      span {
+        color: @text1;
+        text-align: center;
+      }
+      .title {
+        font-size: 12px;
+        font-weight: 500;
+        height: 18px;
+        line-height: 18px;
+        color: @text2;
+        margin-bottom: 4px;
+      }
+      .value {
+        font-size: 24px;
+        line-height: 24px;
+        color: @text1;
+        font-weight: 600;
+      }
+    }
+    .token-balance {
+      .aelf-collapse-item-active {
+        svg.aelf-collapse-arrow {
+          transform: rotate(180deg);
+        }
+      }
+      .aelf-collapse-header {
+        padding: 16px;
+      }
+      .aelf-collapse-content {
+        background: @bg3;
+        border-color: @border1;
+      }
+      .panel-header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .icon {
+          width: 32px;
+          height: 32px;
+          background: @blue2;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          margin-right: 12px;
+          user-select: none;
+        }
+        .name {
+          font-size: 20px;
+          font-weight: 500;
+          color: @text1;
+        }
+        .balance {
+          flex: 1;
+          text-align: right;
+          padding-right: 21px;
+          p {
+            &:first-of-type {
+              font-weight: 600;
+              font-size: 16px;
+              color: @text1;
+            }
+            &:last-of-type {
+              font-size: 12px;
+              color: @text2;
+            }
+          }
+        }
+      }
+      .panel-body {
+        display: flex;
+        justify-content: space-between;
+        p {
+          &:first-of-type {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            height: 24px;
+            color: @text1;
+            margin-bottom: 2px;
+          }
+          &:last-of-type {
+            font-size: 12px;
+            line-height: 18px;
+            height: 18px;
+            color: @text2;
+          }
+        }
+        .body-right {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
