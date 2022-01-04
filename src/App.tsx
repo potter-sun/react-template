@@ -4,12 +4,15 @@ import Modals from 'modals';
 import { routes } from 'routes';
 import { Layout } from 'antd';
 import Header from 'components/Header';
+import { useMobile } from 'contexts/useStore/hooks';
+import clsx from 'clsx';
 function App() {
+  const isMobile = useMobile();
   return (
     <>
       <Modals />
       <BrowserRouter>
-        <Layout className="aelf-marketplace">
+        <Layout className={clsx('aelf-marketplace', isMobile && 'aelf-marketplace-mobile')}>
           <Header />
           <Layout.Content className="aelf-marketplace-content">
             <Routes>
