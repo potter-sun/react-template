@@ -1,0 +1,151 @@
+@import '../../assets/theme/variable.less';
+
+.settings {
+  .main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-top: 80px;
+    .settings-main-title {
+      color: @text1;
+      font-size: 40px;
+      line-height: 48px;
+    }
+    .settings-wrap {
+      padding-top: 48px;
+      .settings-sub-title {
+        font-size: 18px;
+        color: @text1;
+        padding-bottom: 16px;
+        line-height: 27px;
+        .require {
+          color: @red1;
+          line-height: 27px;
+          vertical-align: middle;
+          margin-left: 4px;
+        }
+      }
+      .aelf-upload {
+        width: auto;
+        height: auto;
+        background: transparent;
+        border: none;
+        margin: 0;
+      }
+      .banner-upload {
+        width: 546px;
+        height: 96px;
+        background: @bg3;
+        .ant-upload-drag-container {
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .username-input {
+        outline: none;
+        width: 510px;
+        line-height: 24px;
+        height: 56px;
+        background: transparent;
+        padding: 16px;
+        border-color: @border1;
+        &:hover,
+        &.aelf-input-affix-wrapper-focused {
+          background: transparent;
+          border-color: @border2;
+          box-shadow: 0px 0px 12px @box-shadow1;
+        }
+        .aelf-input-show-count-suffix {
+          color: @text4;
+        }
+        .aelf-input {
+          font-size: 16px;
+          border-radius: 0;
+          background: transparent;
+        }
+        .aelf-input:hover,
+        .aelf-input:focus {
+          box-shadow: none;
+        }
+      }
+      .wallet-address {
+        position: relative;
+        width: 510px;
+        height: 56px;
+        line-height: 24px;
+        padding: 16px;
+        color: @text4;
+        background: @bg10;
+
+        .copy-btn {
+          color: @text2;
+          cursor: pointer;
+          position: absolute;
+          right: 16px;
+          height: 20px;
+          line-height: 20px;
+          svg {
+            color: @text2;
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      .settings-btn {
+        width: 180px;
+        height: 56px;
+      }
+      .aelf-form-item-explain {
+        color: @red1;
+        font-size: 14px;
+        font-weight: 500;
+        .aelf-form-item-explain-error {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+}
+
+.mobile-settings {
+  .main-container {
+    max-width: 23.3571rem;
+    padding-top: 2.8571rem;
+    .settings-main-title {
+      font-size: 2.1429rem;
+      line-height: 3.2143rem;
+    }
+    .settings-wrap {
+      padding-top: 2.2857rem;
+      .settings-sub-title {
+        font-size: 1.2857rem;
+        line-height: 1.9286rem;
+        padding-bottom: 1.1429rem;
+        .require {
+          line-height: 1.9286rem;
+          margin-left: 0.2857rem;
+        }
+      }
+      .aelf-upload {
+        width: 5.1429rem;
+        height: 5.1429rem;
+      }
+      .banner-upload,
+      .username-input,
+      .wallet-address {
+        width: 23.3571rem;
+        height: 4.0714rem;
+      }
+      .aelf-form-item-explain .aelf-form-item-explain-error {
+        font-size: 0.8571rem;
+      }
+      .settings-btn-wrap {
+        margin-top: 2.1429rem;
+      }
+      .settings-btn {
+        width: 11.1429rem;
+        height: 4rem;
+      }
+    }
+  }
+}

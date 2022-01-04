@@ -1,4 +1,6 @@
 import { Space, TabPaneProps, Tabs, TabsProps } from 'antd';
+import clsx from 'clsx';
+import { useMobile } from 'contexts/useStore/hooks';
 import React from 'react';
 import './TabsHeader.less';
 export interface TabNavType extends TabPaneProps {
@@ -11,8 +13,14 @@ export interface TabsHeaderProps {
   onChange?: (v: string) => void;
 }
 export default function TabsHeader({ tabNav, onChange, ...props }: TabsHeaderProps & TabsProps) {
+  const isMobile = useMobile();
   return (
-    <Tabs defaultActiveKey={tabNav?.[0]?.key} centered className={'tabs-header'} onChange={onChange} {...props}>
+    <Tabs
+      defaultActiveKey={tabNav?.[0]?.key}
+      centered
+      className={clsx('tabs-header', isMobile && 'mobile-tabs-header')}
+      onChange={onChange}
+      {...props}>
       {tabNav.map((item) => {
         let icon = item.icon;
         if (typeof item.icon === 'string') {

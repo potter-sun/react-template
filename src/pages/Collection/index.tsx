@@ -7,8 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { useCallback, useLayoutEffect, useMemo } from 'react';
 import { Col, Row } from 'antd';
 import clsx from 'clsx';
+import { useMobile } from 'contexts/useStore/hooks';
 
 export default function Collections() {
+  const isMobile = useMobile();
   const navigate = useNavigate();
 
   const collectionList = useCollections();
@@ -49,8 +51,8 @@ export default function Collections() {
   }, [handleCollectionChange, paneList]);
 
   return (
-    <div className="collection">
-      <h1 className="collection-main-title">Explore Collection</h1>
+    <div className={clsx('collection', isMobile && 'mobile-collection')}>
+      <h1 className="collection-main-title weight-600">Explore Collection</h1>
       <TabsHeader tabNav={paneList} onChange={handleCollectionChange}></TabsHeader>
     </div>
   );

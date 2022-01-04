@@ -1,4 +1,6 @@
 import { Card } from 'antd';
+import clsx from 'clsx';
+import { useMobile } from 'contexts/useStore/hooks';
 import { useNavigate } from 'react-router-dom';
 import { collectionBadge } from '../../../../assets/images';
 import './CollectionCard.less';
@@ -30,10 +32,13 @@ const TitlePanel = ({ title, hasBadge, creator }: { title: string; hasBadge?: bo
 
 const { Meta } = Card;
 export default function CollectionCard(data: Collection) {
+  const isMobile = useMobile();
   const navigate = useNavigate();
   const { background, avatar, title, creator, description, id } = data.option;
   return (
-    <div className="collection-card" onClick={() => navigate(`/explore-items/${id}`)}>
+    <div
+      className={clsx('collection-card', isMobile && 'mobile-collection-card')}
+      onClick={() => navigate(`/explore-items/${id}`)}>
       <Card cover={<img alt="collectionImg" src={background} />}>
         <Meta
           avatar={<img src={avatar}></img>}

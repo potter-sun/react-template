@@ -1,17 +1,26 @@
-import { Button, Dropdown, Layout, Menu, Space } from 'antd';
+import { Button, Drawer, Dropdown, Layout, Menu, Slider, Space } from 'antd';
 import clsx from 'clsx';
 import { basicModalView } from 'contexts/useModal/actions';
 import { useModalDispatch } from 'contexts/useModal/hooks';
 import { useActiveWeb3React } from 'hooks/web3';
+import { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { Account, AELF, logo, Logout, Setting, User, Wallet } from '../../assets/images';
+import { Account, AELF, Explore, Frame, Logo, Logout, MobileLogo, Setting, User, Wallet } from '../../assets/images';
 import WalletDropdown from './components/WalletDropdown';
 import './index.less';
 export default function Header() {
   const modalDispatch = useModalDispatch();
   const { account } = useActiveWeb3React();
   const { pathname } = useLocation();
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
 
   const accountMenu = (
     <Menu>
@@ -62,31 +71,60 @@ export default function Header() {
   );
 
   return (
-    <Layout.Header className="flex-between-center aelf-marketplace-header">
+    <Layout.Header className={clsx('flex-between-center aelf-marketplace-header', isMobile && 'mobile-header')}>
       <NavLink to={'/'}>
-        <img src={logo} alt="aelf" />
+        {/* <img src={isMobile ? mobileLogo : logo} alt="aelf" /> */}
+        {isMobile ? <MobileLogo /> : <Logo />}
       </NavLink>
-      <Space className="btn-wrap">
-        <Space className="text-btn-wrap">
-          <NavLink to="/" className={clsx('nav-text', pathname === '/' && 'text-select')}>
-            Explore
-          </NavLink>
-          <NavLink to="/" className={clsx('nav-text', pathname === '/create' && 'text-select')}>
-            Create
-          </NavLink>
-        </Space>
-
-        <Space className="icon-btn-wrap">
-          <Dropdown overlay={accountMenu} overlayClassName="overlay-account overlay-header" placement="bottomRight">
-            <NavLink to="/" className={clsx('nav-text', pathname === '/account' && 'text-select')}>
-              <User className="header-account-btn" />
+      {isMobile ? (
+        <>
+          <Frame onClick={showDrawer} />
+          <Drawer
+            className="header-drawer"
+            extra={<MobileLogo />}
+            placement={'right'}
+            onClose={onClose}
+            visible={visible}>
+            <p>
+              <NavLink to={'/'}>
+                <Explore /> <span>Explore</span>
+              </NavLink>
+            </p>
+            <p>
+              <NavLink to={'/'}>
+                <Explore /> <span>Create</span>
+              </NavLink>
+            </p>
+            <p>
+              <NavLink to={'/'}>
+                <Explore /> <span>Explore</span>
+              </NavLink>
+            </p>
+          </Drawer>
+        </>
+      ) : (
+        <Space className="btn-wrap">
+          <Space className="text-btn-wrap">
+            <NavLink to="/" className={clsx('nav-text', pathname === '/' && 'text-select')}>
+              Explore
             </NavLink>
-          </Dropdown>
-          <Dropdown overlay={walletMenu} overlayClassName="overlay-wallet overlay-header" placement="bottomRight">
-            <Wallet className="header-wallet-btn" />
-          </Dropdown>
+            <NavLink to="/" className={clsx('nav-text', pathname === '/create' && 'text-select')}>
+              Create
+            </NavLink>
+          </Space>
+
+          <Space className="icon-btn-wrap">
+            <Dropdown overlay={accountMenu} overlayClassName="overlay-account overlay-header" placement="bottomRight">
+              <NavLink to="/" className={clsx('nav-text', pathname === '/account' && 'text-select')}>
+                <User className="header-account-btn" />
+              </NavLink>
+            </Dropdown>
+            <Dropdown overlay={walletMenu} overlayClassName="overlay-wallet overlay-header" placement="bottomRight">
+              <Wallet className="header-wallet-btn" />
+            </Dropdown>
+          </Space>
         </Space>
-      </Space>
+      )}
     </Layout.Header>
   );
 }
