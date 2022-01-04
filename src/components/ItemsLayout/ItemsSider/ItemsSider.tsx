@@ -3,9 +3,8 @@ import ItemsSiderMenu from '../ItemsSiderMenu/ItemsSiderMenu';
 import { CollapsedIcon } from '../../../assets/images';
 import { useMemo, useState } from 'react';
 import './ItemsSider.less';
-import { OnSiderChange } from '../types';
 
-export default function ItemsSider({ onSiderChange }: { onSiderChange?: OnSiderChange }) {
+export default function ItemsSider() {
   const [isCollapsed, setCollapsed] = useState<boolean>(false);
 
   const Trigger = useMemo(() => {
@@ -28,7 +27,7 @@ export default function ItemsSider({ onSiderChange }: { onSiderChange?: OnSiderC
       trigger={Trigger}
       collapsible
       collapsedWidth={64}>
-      <ItemsSiderMenu onSiderChange={onSiderChange} />
+      <ItemsSiderMenu />
     </Layout.Sider>
   );
 }

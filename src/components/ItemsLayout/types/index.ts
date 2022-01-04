@@ -37,5 +37,3 @@ export type RangeItemType = {
 
 export type FilterItemType = RangeItemType | MultipleItemType | SingleItemType;
 export type FilterItemList = FilterItemType[];
-
-export type OnSiderChange = (v: any) => void;

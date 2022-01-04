@@ -153,7 +153,7 @@ export default function Header() {
             </NavLink>
           </Dropdown>
           <Dropdown
-            visible={true}
+            visible={false}
             overlay={walletMenu}
             overlayClassName="overlay-wallet overlay-header"
             placement="bottomRight">

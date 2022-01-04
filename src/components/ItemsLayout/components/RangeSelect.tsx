@@ -8,8 +8,8 @@ import { USDIcon } from '../../../assets/images';
 import BigNumber from 'bignumber.js';
 
 type RangeType = {
-  min?: string | number;
-  max?: string | number;
+  min: string | number;
+  max: string | number;
 };
 
 export interface RangeSelectProps {
