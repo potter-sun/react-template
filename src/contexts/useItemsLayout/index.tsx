@@ -4,6 +4,7 @@ import { basicLayoutView, LayoutState } from './actions';
 
 const INITIAL_STATE = {
   filterList: null,
+  filterSelect: null,
 };
 const ItemsLayoutContext = createContext<any>(INITIAL_STATE);
 
@@ -13,14 +14,14 @@ export function useLayoutItems(): [LayoutState, BasicActions] {
 
 //reducer
 function reducer(state: any, { type, payload }: any) {
-  console.log(type, 'type====reducer');
   switch (type) {
     case basicLayoutView.setFilterList.type: {
-      console.log(payload, 'payload====');
+      return Object.assign({}, state, payload);
+    }
+    case basicLayoutView.setFilterSelectList.type: {
       return Object.assign({}, state, payload);
     }
     case basicLayoutView.setDestroy.type: {
-      console.log(payload, 'payload====');
       return Object.assign({});
     }
     default: {

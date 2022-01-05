@@ -9,6 +9,11 @@ export type SourceItem = {
   label: string;
 };
 
+export type RangeType = {
+  min: string;
+  max: string;
+};
+
 export type SingleItemType = {
   key: string;
   title: string;
@@ -37,5 +42,3 @@ export type RangeItemType = {
 
 export type FilterItemType = RangeItemType | MultipleItemType | SingleItemType;
 export type FilterItemList = FilterItemType[];
-
-export type OnSiderChange = (v: any) => void;

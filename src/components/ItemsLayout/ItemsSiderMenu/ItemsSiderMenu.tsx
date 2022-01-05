@@ -1,37 +1,48 @@
 import { Menu } from 'antd';
 import { useLayoutItems } from 'contexts/useItemsLayout';
-import { useCallback, useEffect, useState } from 'react';
+import { basicLayoutView } from 'contexts/useItemsLayout/actions';
+import { useLayoutDispatch } from 'contexts/useItemsLayout/hooks';
+import { useCallback } from 'react';
 import MultipleChoice from '../components/MultipleChoice';
 import RangeSelect from '../components/RangeSelect';
 import SingleChoice from '../components/SingleChoice';
-import { FilterType, OnSiderChange } from '../types';
+import { FilterType, RangeType } from '../types';
 import './ItemsSiderMenu.less';
 
-export default function ItemsSiderMenu({ onSiderChange }: { onSiderChange?: OnSiderChange }) {
-  const [filter, setFilter] = useState<{ [x: string]: string[] }>();
-
+export default function ItemsSiderMenu() {
+  const [{ filterSelect, filterList }] = useLayoutItems();
   const handleClick = useCallback((v) => {
     console.log(v);
   }, []);
 
   const [state] = useLayoutItems();
-  const SingleChoiceChange = useCallback((e, key) => {
-    console.log(e.target.value, key, 'SingleChoiceChange');
-    setFilter((v) => {
-      return { ...v, [key]: [e.target.value] };
-    });
-  }, []);
+  const layoutDispatch = useLayoutDispatch();
+  const dispatchCallback = useCallback(
+    (filter) => {
+      layoutDispatch(basicLayoutView.setFilterSelectList.actions(filter));
+    },
+    [layoutDispatch],
+  );
+  const SingleChoiceChange = useCallback(
+    (e, key) => {
+      dispatchCallback({ ...filterSelect, [key]: [e.target.value] });
+    },
+    [dispatchCallback, filterSelect],
+  );
 
-  const MultipleChoiceChange = useCallback((v, key) => {
-    console.log(v, key, 'MultipleChoiceChange');
-    setFilter((f) => {
-      return { ...f, [key]: v };
-    });
-  }, []);
+  const MultipleChoiceChange = useCallback(
+    (v, key) => {
+      dispatchCallback({ ...filterSelect, [key]: v });
+    },
+    [dispatchCallback, filterSelect],
+  );
 
-  useEffect(() => {
-    onSiderChange?.(filter);
-  }, [filter, onSiderChange]);
+  const RangeSelectChange = useCallback(
+    (v, key) => {
+      dispatchCallback({ ...filterSelect, [key]: [v] });
+    },
+    [dispatchCallback, filterSelect],
+  );
 
   return (
     <>
@@ -48,22 +59,22 @@ export default function ItemsSiderMenu({ onSiderChange }: { onSiderChange?: OnSi
                 {item.children.type === FilterType.Single && (
                   <SingleChoice
                     dataSource={item as any}
-                    defaultValue={filter?.[item.key]}
+                    defaultValue={filterSelect?.[item.key] as string[]}
                     onChange={SingleChoiceChange}
                   />
                 )}
                 {item.children.type === FilterType.Multiple && (
                   <MultipleChoice
                     dataSource={item as any}
-                    defaultValue={filter?.[item.key]}
+                    defaultValue={filterSelect?.[item.key] as string[]}
                     onChange={MultipleChoiceChange}
                   />
                 )}
                 {item.children.type === FilterType.Range && (
                   <RangeSelect
                     dataSource={item as any}
-                    defaultValue={filter?.[item.key]}
-                    onChange={MultipleChoiceChange}
+                    defaultValue={filterSelect?.[item.key] as RangeType[]}
+                    onChange={RangeSelectChange}
                   />
                 )}
               </>
