@@ -6,15 +6,11 @@ import './index.less';
 import RangeInput from './RangeInput';
 import { USDIcon } from '../../../assets/images';
 import BigNumber from 'bignumber.js';
-
-type RangeType = {
-  min: string | number;
-  max: string | number;
-};
+import { RangeType } from 'contexts/useItemsLayout/actions';
 
 export interface RangeSelectProps {
   dataSource?: any;
-  defaultValue?: string[];
+  defaultValue?: RangeType[];
   onChange?: (value: RangeType | undefined, key: string) => void;
 }
 

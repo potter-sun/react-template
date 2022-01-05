@@ -19,7 +19,6 @@ function reducer(state: any, { type, payload }: any) {
       return Object.assign({}, state, payload);
     }
     case basicLayoutView.setFilterSelectList.type: {
-      console.log(payload, 'payload=== ');
       return Object.assign({}, state, payload);
     }
     case basicLayoutView.setDestroy.type: {

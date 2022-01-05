@@ -20,6 +20,7 @@ export default function SingleChoice({ dataSource, defaultValue, onChange }: Sin
       <Radio.Group
         buttonStyle="solid"
         defaultValue={defaultValue?.[0]}
+        value={defaultValue?.[0]}
         className="padding24 single-choice-wrapper"
         onChange={SingleChoiceHandler}>
         {dataSource?.children?.data.map((item) => (

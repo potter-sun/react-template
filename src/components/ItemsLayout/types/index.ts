@@ -9,6 +9,11 @@ export type SourceItem = {
   label: string;
 };
 
+export type RangeType = {
+  min: string;
+  max: string;
+};
+
 export type SingleItemType = {
   key: string;
   title: string;

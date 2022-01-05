@@ -18,7 +18,7 @@ export default function MultipleChoice({ dataSource, defaultValue, onChange }: M
   return (
     <Checkbox.Group
       className="padding24 multiple-choice-wrapper"
-      defaultValue={defaultValue}
+      value={defaultValue}
       options={dataSource?.children?.data}
       onChange={MultipleChoiceHandler}
     />

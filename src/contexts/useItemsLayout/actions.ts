@@ -1,6 +1,10 @@
 import { FilterItemList } from 'components/ItemsLayout/types';
 import { basicActions } from 'contexts/utils';
-type StringList = { [x: string]: string[] };
+export type RangeType = {
+  min: string;
+  max: string;
+};
+export type StringList = { [x: string]: string[] | RangeType[] };
 const LayoutActions = {
   addFilterListActions: 'ADD_FILTER_LIST_ACTIONS',
   setFilterSelectActions: 'SET_FILTER_SELECT_ACTIONS',
@@ -19,7 +23,7 @@ export const basicLayoutView = {
   },
   setFilterSelectList: {
     type: LayoutActions.setFilterSelectActions,
-    actions: (v: StringList) => basicActions(LayoutActions.setFilterSelectActions, { filterSelect: v }),
+    actions: (v: StringList | null) => basicActions(LayoutActions.setFilterSelectActions, { filterSelect: v }),
   },
   setDestroy: {
     type: LayoutActions.destroy,
