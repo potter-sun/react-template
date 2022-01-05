@@ -12,11 +12,12 @@ import './style.less';
 import { useNavigate } from 'react-router-dom';
 
 export default function Settings() {
+  const isMobile = useMobile();
   const navigate = useNavigate();
   const { account } = useActiveWeb3React();
-  const isMobile = useMobile();
+  const [avatarUrl, setAvatar] = useState('');
+  const [bannerUrl, setBannerUrl] = useState('');
   const [uploading, setUploading] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
   const [username, setUsername] = useState<{
     value: string;
     validateStatus?: ValidateStatus;
@@ -50,25 +51,30 @@ export default function Settings() {
     if (info.file.status === 'done') {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, (imageUrl) => {
-        setImageUrl(imageUrl);
+        setAvatar(imageUrl);
         setUploading(false);
       });
     }
   };
 
-  const props = {
+  const bannerProps = {
     name: 'banner',
     multiple: false,
-    // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     onChange(info: any) {
       const { status } = info.file;
       if (status !== 'uploading') {
-        console.log(info.file, info.fileList);
+        console.log(info.file);
       }
       if (status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully.`);
+        // message.success(`${info.file.name} file uploaded successfully.`);
+        console.log(info.file.response.thumbUrl);
+        getBase64(info.file.originFileObj, (imageUrl) => {
+          setBannerUrl(imageUrl);
+          setUploading(false);
+        });
       } else if (status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
+        // message.error(`${info.file.name} file upload failed.`);
       }
     },
     onDrop(e: { dataTransfer: { files: any } }) {
@@ -107,8 +113,13 @@ export default function Settings() {
               <p className="settings-sub-title">
                 ProFile Image{' '}
                 <Tooltip
-                  overlay="Recommended 350px x 350px
-                  Max size: 100MB">
+                  title={
+                    <span>
+                      Recommended 350px x 350px
+                      <br />
+                      Max size: 100MB
+                    </span>
+                  }>
                   <WarningMark />
                 </Tooltip>
               </p>
@@ -117,22 +128,31 @@ export default function Settings() {
                 listType="picture-card"
                 className="avatar-uploader"
                 showUploadList={false}
-                // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                 beforeUpload={beforeUpload}
                 onChange={handleChange}>
-                {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                <div className="avatar">
+                  {avatarUrl ? <img src={avatarUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                </div>
               </Upload>
             </Col>
             <Col span={isMobile ? 24 : 16}>
               <p className="settings-sub-title">
                 Profile Banner{' '}
                 <Tooltip
-                  overlay="Recommended 1400px x 400px
-                  Max size: 100MB">
+                  title={
+                    <span>
+                      Recommended 1400px x 400px
+                      <br />
+                      Max size: 100MB
+                    </span>
+                  }>
                   <WarningMark />
                 </Tooltip>
               </p>
-              <Dragger className="banner-upload radius-12" {...props} />
+              <Dragger className="banner-upload radius-12" {...bannerProps}>
+                {bannerUrl && <img src={bannerUrl} />}
+              </Dragger>
             </Col>
             <Col span={24}>
               <p className="settings-sub-title">
