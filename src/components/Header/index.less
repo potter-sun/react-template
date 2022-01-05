@@ -19,6 +19,10 @@
   a {
     display: flex;
   }
+  .header-logo {
+    width: 103px;
+    height: 59px;
+  }
   .nav-text {
     &:hover {
       color: ~'var(--@{app-prefix}-brand-light)';
@@ -79,7 +83,7 @@
 }
 .overlay-account {
   .aelf-dropdown-menu {
-    margin-top: -6px;
+    // margin-top: -6px;
     transform: translateX(-5px);
     .aelf-dropdown-menu-item {
       height: 56px;
@@ -135,13 +139,19 @@
 .mobile-header {
   height: 4.2857rem;
   padding: 0.7143rem 1.1429rem;
+  .mobile-logo {
+    width: 4.375rem;
+    height: 2.5rem;
+  }
 }
 .header-drawer {
   background: @bg2;
   svg {
     color: white;
+    fill: white;
   }
   .aelf-drawer-header {
+    z-index: 1;
     display: flex;
     height: 4.2857rem;
     padding: 0.7143rem 1.1429rem;
@@ -154,6 +164,10 @@
       flex: 1;
       display: flex;
       align-items: center;
+      img {
+        width: 4.375rem;
+        height: 2.5rem;
+      }
     }
     .aelf-drawer-header-title {
       flex: none;
@@ -167,11 +181,88 @@
     }
   }
   .aelf-drawer-body {
+    position: relative;
     background: @bg1;
+    padding-top: 0;
     span {
       color: @text1;
       font-weight: 600;
       font-size: 1.2857rem;
+    }
+    .menu-wrap {
+      border-bottom: 0.0625rem solid @border1;
+      padding-top: 1.625rem;
+      padding-bottom: 1.625rem;
+      &:last-of-type {
+        border-bottom: 0;
+      }
+      a {
+        display: flex;
+        align-items: center;
+      }
+      svg {
+        width: 1.5188rem;
+        height: 1.5188rem;
+        fill: white;
+      }
+      .menu-item {
+        display: flex;
+        height: 1.6875rem;
+        line-height: 1.6875rem;
+        margin-bottom: 2.3125rem;
+        span {
+          margin-left: 1.3125rem;
+        }
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .menu-bottom {
+      width: calc(100% - 3rem);
+      display: flex;
+      position: absolute;
+      bottom: 2.5rem;
+      justify-content: space-around;
+      .menu-item {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        border-right: 0.0625rem solid @border1;
+        a {
+          display: flex;
+        }
+        span {
+          margin-left: 0.6875rem;
+        }
+        &:last-of-type {
+          border: none;
+        }
+      }
+    }
+  }
+}
+.child-drawer {
+  .drawer-title {
+    color: @text1;
+    font-size: 2.1429rem;
+    line-height: 3.2143rem;
+    padding-top: 2.8571rem;
+    padding-bottom: 0.5714rem;
+  }
+  .return-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.1429rem 1.7143rem;
+    border-top: 0.0714rem solid @border1;
+    Button {
+      width: 100%;
+      padding: 1.1429rem;
+      line-height: 1.7143rem;
+      height: auto;
     }
   }
 }

@@ -30,6 +30,15 @@
         background: transparent;
         border: none;
         margin: 0;
+        .avatar {
+          width: 96px;
+          height: 96px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
       }
       .banner-upload {
         width: 546px;
@@ -39,6 +48,18 @@
           cursor: pointer;
           width: 100%;
           height: 100%;
+          overflow: hidden;
+          justify-content: center;
+          align-items: center;
+          img {
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        & + .ant-upload-list {
+          display: none;
         }
       }
       .username-input {
@@ -129,6 +150,13 @@
       .aelf-upload {
         width: 5.1429rem;
         height: 5.1429rem;
+        .avatar {
+          width: 5.1429rem;
+          height: 5.1429rem;
+          svg {
+            width: 100%;
+          }
+        }
       }
       .banner-upload,
       .username-input,
