@@ -2,6 +2,10 @@ import { API_REQ_FUNCTION } from './types';
 
 export const BASE_APIS = {};
 
+export const COLLECTIONS_ITEMS_APIS = {
+  GET_COLLECTIONS: '/api/getCollections.json',
+};
+
 export const COLLECTIONS_APIS = {
   GET_COLLECTIONS: '/mock/getCollections.json',
 };
