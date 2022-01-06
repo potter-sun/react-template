@@ -1,11 +1,12 @@
 import { Layout } from 'antd';
 import TopFilterButton from '../components/TopFilterButton';
-import './ItemsContent.less';
+import ScrollContent from '../ScrollContent/ScrollContent';
 
 export default function ItemsContent() {
   return (
-    <Layout.Content className="items-content">
+    <Layout.Content>
       <TopFilterButton />
+      <ScrollContent />
     </Layout.Content>
   );
 }

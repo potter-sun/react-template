@@ -5,6 +5,7 @@ import './ItemsLayout.less';
 import TabsHeader, { TabNavType } from '../TabsHeader/TabsHeader';
 import ItemsSider from './ItemsSider/ItemsSider';
 import ItemsContent from './ItemsContent/ItemsContent';
+import useSearchItemsList from 'hooks/useSearchItemsList';
 export interface ItemsLayoutProps {
   tabNav: TabNavType[];
 }
@@ -13,6 +14,7 @@ export default function ItemsLayout({ tabNav }: ItemsLayoutProps) {
   const tabsChange = useCallback((v) => {
     console.log(v, 'tabsChange');
   }, []);
+  const l = useSearchItemsList();
   return (
     <Layout className={clsx('collection-items-layout')}>
       <Layout.Header>

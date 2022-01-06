@@ -5,6 +5,7 @@ import { basicLayoutView, LayoutState } from './actions';
 const INITIAL_STATE = {
   filterList: null,
   filterSelect: null,
+  isCollapsed: false,
 };
 const ItemsLayoutContext = createContext<any>(INITIAL_STATE);
 
@@ -19,6 +20,9 @@ function reducer(state: any, { type, payload }: any) {
       return Object.assign({}, state, payload);
     }
     case basicLayoutView.setFilterSelectList.type: {
+      return Object.assign({}, state, payload);
+    }
+    case basicLayoutView.setCollapsed.type: {
       return Object.assign({}, state, payload);
     }
     case basicLayoutView.setDestroy.type: {

@@ -4,29 +4,10 @@ import { FilterItemList, FilterType } from 'components/ItemsLayout/types';
 import { basicLayoutView } from 'contexts/useItemsLayout/actions';
 import { useLayoutDispatch } from 'contexts/useItemsLayout/hooks';
 import { useEffect, useMemo } from 'react';
-import { useParams } from 'react-router';
 
 export default function ExploreItems() {
   const tabName = useMemo(() => [{ title: 'Items', key: 'items', icon: <Menu /> }], []);
-  // const navigate = useNavigate();
-  const pathParams = useParams();
-  console.log(pathParams, 'pathname===');
   const LayoutDispatch = useLayoutDispatch();
-  // const selectFilterChange = useCallback(
-  //   (v) => {
-  //     console.log(v, 'selectFilterChange');
-  //     if (!v) return;
-  //     // let hash = '';
-  //     // TODO
-  //     // Object.entries(v).map((key, item) => {
-  //     //   hash += `&${key}=${item}`;
-  //     // });
-  //     // console.log(hash, 'hash===selectFilterChange');
-  //     // console.log(`/explore-items/${pathParams?.collectId}?`, 'selectFilterChange');
-  //     // navigate(`/explore-items/${pathParams?.collectId}?`);
-  //   },
-  //   [navigate, pathParams?.collectId],
-  // );
 
   const filterList: FilterItemList = useMemo(
     () => [
