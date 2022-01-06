@@ -1,5 +1,7 @@
 import { Collapse, Dropdown, Menu } from 'antd';
 import { Arrow, ELF, Logout, LogoutBtn, Photo, USDT } from 'assets/images';
+import clsx from 'clsx';
+import { useMobile } from 'contexts/useStore/hooks';
 import { useActiveWeb3React } from 'hooks/web3';
 
 import './index.less';
@@ -20,7 +22,7 @@ const BalanceCard = (option: {
         key={name}
         header={
           <div className="panel-header">
-            {icon === 'elf' ? <ELF /> : <USDT />}
+            <img className="token-icon" src={icon === 'elf' ? ELF : USDT} />
             <p className="name">{name}</p>
             <div className="balance">
               <p>{Number(balance).toFixed(3)}</p>
@@ -50,44 +52,48 @@ const BalanceCard = (option: {
 };
 // [{ name: 'Main AELF', token: 'ELF', balance: 2.989, convertedBalance: 2.98 }]
 export default function WalletDropdown(options: { avatar?: string; totalBalance: any; chainList: ChainInfo[] }) {
+  const isMobile = useMobile();
   const { account } = useActiveWeb3React();
   const { avatar, totalBalance, chainList } = options;
   return (
-    <Menu>
-      <Menu.Item key="account">
-        <div className="user-info">
-          {avatar ? <img src={avatar} alt="avatar" /> : <Photo />}
-          <div>
-            <p className="username">
-              username{' '}
-              <Dropdown
-                overlayClassName="overlay-header"
-                placement="bottomCenter"
-                overlay={
-                  <Menu>
-                    <Menu.Item key="logOut">
-                      <Logout className="margin-right-11" /> Log Out
-                    </Menu.Item>
-                  </Menu>
-                }>
-                <LogoutBtn className="logout-btn" />
-              </Dropdown>
-            </p>
-            <p className="address">
-              {account?.slice(0, 6)}...{account?.slice(-4)}
-            </p>
+    <div className={clsx('wallet-menu', isMobile && 'mobile-wallet-menu')}>
+      <Menu>
+        <Menu.Item key="account">
+          <div className="user-info">
+            {avatar ? <img className="avatar" src={avatar} alt="avatar" /> : <Photo className="avatar" />}
+            <div className="right-wrap">
+              <p className="username">
+                username{' '}
+                <Dropdown
+                  overlayClassName="overlay-header"
+                  placement="bottomCenter"
+                  overlay={
+                    <Menu>
+                      <Menu.Item key="logOut">
+                        <Logout className="margin-right-11" /> Log Out
+                      </Menu.Item>
+                    </Menu>
+                  }>
+                  <LogoutBtn className="logout-btn" />
+                </Dropdown>
+              </p>
+              <p className="address">
+                {account?.slice(0, 6)}...{account?.slice(-4)}
+              </p>
+            </div>
           </div>
-        </div>
-      </Menu.Item>
-      <Menu.Item key="balance">
-        <div className="balance-wrap">
-          <div className="total-balance balance">
-            <p className="title">Total balance</p>
-            <p className="value">${totalBalance.toFixed(2)} USD</p>
+        </Menu.Item>
+        <Menu.Item key="balance">
+          <div className="balance-wrap">
+            <div className="total-balance balance">
+              <p className="title">Total balance</p>
+              <p className="value">${totalBalance.toFixed(2)} USD</p>
+            </div>
+            <BalanceCard icon="elf" name={'ELF'} balance={'100'} convertedBalance={'30'} chainList={chainList} />
+            <BalanceCard icon="usdt" name={'USDT'} balance={'100'} convertedBalance={'30'} chainList={chainList} />
           </div>
-          <BalanceCard icon="elf" name={'ELF'} balance={'100'} convertedBalance={'30'} chainList={chainList} />
-        </div>
-      </Menu.Item>
-    </Menu>
+        </Menu.Item>
+      </Menu>
+    </div>
   );
 }

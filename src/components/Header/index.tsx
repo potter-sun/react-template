@@ -1,105 +1,108 @@
-import { Button, Drawer, Dropdown, Layout, Menu, Slider, Space } from 'antd';
+import { Button, Drawer, Dropdown, Layout, Menu, Space } from 'antd';
 import clsx from 'clsx';
-import { basicModalView } from 'contexts/useModal/actions';
-import { useModalDispatch } from 'contexts/useModal/hooks';
-import { useActiveWeb3React } from 'hooks/web3';
 import { useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { NavLink, useLocation } from 'react-router-dom';
+import AccountMenu from './components/AccountMenu';
+import WalletMenu from './components/WalletMenu';
 
-import { Account, AELF, Explore, Frame, Logo, Logout, MobileLogo, Setting, User, Wallet } from '../../assets/images';
-import WalletDropdown from './components/WalletDropdown';
+import {
+  Create,
+  Explore,
+  Frame,
+  PCLogo,
+  Logout,
+  MobileLogo,
+  Profile,
+  Setting,
+  User,
+  Wallet,
+} from '../../assets/images';
 import './index.less';
 export default function Header() {
-  const modalDispatch = useModalDispatch();
-  const { account } = useActiveWeb3React();
   const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
+  const [childVisible, setChildVisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
   };
-  const onClose = () => {
-    setVisible(false);
+  const showChildDrawer = () => {
+    setChildVisible(true);
   };
-
-  const accountMenu = (
-    <Menu>
-      <Menu.Item key="account">
-        <NavLink to="/account">
-          <Account /> Profile
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item key="settings">
-        <NavLink to="/settings">
-          <Setting /> Settings
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item key="logOut">
-        <Logout /> Log Out
-      </Menu.Item>
-    </Menu>
-  );
-  const walletMenu = !account ? (
-    <Menu className="unconnected-menu">
-      <Menu.Item key="account">
-        <div className="account-tip">
-          <p className="text-light font-20 weight-500">Collect your wallet</p>
-          <p className="text-gray font-14">Please connect AELF wallet</p>
-        </div>
-      </Menu.Item>
-      <Menu.Item key="settings">
-        <div className="width-100">
-          <div className="outline radius-11 width-100 margin-column-16 flex-center padding-16">
-            <AELF />
-          </div>
-          <Button
-            onClick={() => {
-              modalDispatch(basicModalView.setWalletModal.actions(true));
-            }}
-            type="primary"
-            className="width-100 flex-center font-16 connect-btn">
-            Connect
-          </Button>
-        </div>
-      </Menu.Item>
-    </Menu>
-  ) : (
-    <WalletDropdown
-      totalBalance={300}
-      chainList={[{ name: 'Main AELF', token: 'ELF', balance: 2.989, convertedBalance: 2.98 }]}
-    />
-  );
+  const onClose = () => {
+    setTimeout(() => {
+      setVisible(false);
+      setChildVisible(false);
+    }, 10);
+  };
+  const onChildClose = () => {
+    setTimeout(() => {
+      setChildVisible(false);
+    }, 10);
+  };
 
   return (
     <Layout.Header className={clsx('flex-between-center aelf-marketplace-header', isMobile && 'mobile-header')}>
       <NavLink to={'/'}>
-        {/* <img src={isMobile ? mobileLogo : logo} alt="aelf" /> */}
-        {isMobile ? <MobileLogo /> : <Logo />}
+        <img className={clsx('header-logo', isMobile && 'mobile-logo')} src={isMobile ? MobileLogo : PCLogo} />
       </NavLink>
       {isMobile ? (
         <>
           <Frame onClick={showDrawer} />
           <Drawer
             className="header-drawer"
-            extra={<MobileLogo />}
-            placement={'right'}
+            extra={<img src={MobileLogo} />}
+            placement="right"
             onClose={onClose}
             visible={visible}>
-            <p>
-              <NavLink to={'/'}>
-                <Explore /> <span>Explore</span>
-              </NavLink>
-            </p>
-            <p>
-              <NavLink to={'/'}>
-                <Explore /> <span>Create</span>
-              </NavLink>
-            </p>
-            <p>
-              <NavLink to={'/'}>
-                <Explore /> <span>Explore</span>
-              </NavLink>
-            </p>
+            <div>
+              <div className="menu-wrap" onClick={onClose}>
+                <p className="menu-item">
+                  <NavLink to={'/'}>
+                    <Explore /> <span>Explore</span>
+                  </NavLink>
+                </p>
+                <p className="menu-item">
+                  <NavLink to={'/'}>
+                    <Create /> <span>Create</span>
+                  </NavLink>
+                </p>
+              </div>
+              <div className="menu-wrap">
+                <p className="menu-item" onClick={onClose}>
+                  <NavLink to={'/'}>
+                    <Profile /> <span>Profile</span>
+                  </NavLink>
+                </p>
+                <p className="menu-item" onClick={showChildDrawer}>
+                  <Wallet /> <span>Wallet</span>
+                  <Drawer
+                    className="header-drawer child-drawer"
+                    extra={<img src={MobileLogo} />}
+                    placement="right"
+                    onClose={onClose}
+                    visible={childVisible}>
+                    <h1 className="drawer-title weight-600">Wallet</h1>
+                    <WalletMenu />
+                    <div className="return-wrap">
+                      <Button type="default" onClick={onChildClose}>
+                        Return
+                      </Button>
+                    </div>
+                  </Drawer>
+                </p>
+              </div>
+            </div>
+            <div className="menu-bottom">
+              <p className="menu-item" onClick={onClose}>
+                <NavLink to={'/settings'}>
+                  <Setting /> <span>Settings</span>
+                </NavLink>
+              </p>
+              <p className="menu-item">
+                <Logout /> <span>Log Out</span>
+              </p>
+            </div>
           </Drawer>
         </>
       ) : (
@@ -114,12 +117,15 @@ export default function Header() {
           </Space>
 
           <Space className="icon-btn-wrap">
-            <Dropdown overlay={accountMenu} overlayClassName="overlay-account overlay-header" placement="bottomRight">
+            <Dropdown
+              overlay={<AccountMenu />}
+              overlayClassName="overlay-account overlay-header"
+              placement="bottomRight">
               <NavLink to="/" className={clsx('nav-text', pathname === '/account' && 'text-select')}>
                 <User className="header-account-btn" />
               </NavLink>
             </Dropdown>
-            <Dropdown overlay={walletMenu} overlayClassName="overlay-wallet overlay-header" placement="bottomRight">
+            <Dropdown overlay={<WalletMenu />} overlayClassName="overlay-wallet overlay-header" placement="bottomRight">
               <Wallet className="header-wallet-btn" />
             </Dropdown>
           </Space>
