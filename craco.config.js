@@ -2,6 +2,7 @@
 const CracoLessPlugin = require('craco-less');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
+const activeApi = require('./proxy');
 const { NODE_ENV, REACT_APP_PREFIX } = process.env;
 const Webpack = {
   production: {
@@ -23,7 +24,18 @@ const Webpack = {
 };
 
 module.exports = {
-  devServer: {},
+  devServer: {
+    proxy: {
+      '/local/api': {
+        target: activeApi.localApi,
+        changeOrigin: true,
+        secure: true,
+        pathRewrite: {
+          '^/local/api': '/api',
+        },
+      },
+    },
+  },
   plugins: [
     {
       plugin: CracoLessPlugin,
