@@ -5,7 +5,8 @@ import './ItemsLayout.less';
 import TabsHeader, { TabNavType } from '../TabsHeader/TabsHeader';
 import ItemsSider from './ItemsSider/ItemsSider';
 import ItemsContent from './ItemsContent/ItemsContent';
-import useSearchItemsList from 'hooks/useSearchItemsList';
+import useItemsList from 'hooks/useItemsList';
+import Updater from './hooks/Updater';
 export interface ItemsLayoutProps {
   tabNav: TabNavType[];
 }
@@ -14,16 +15,20 @@ export default function ItemsLayout({ tabNav }: ItemsLayoutProps) {
   const tabsChange = useCallback((v) => {
     console.log(v, 'tabsChange');
   }, []);
-  const l = useSearchItemsList();
+
+  useItemsList();
   return (
-    <Layout className={clsx('collection-items-layout')}>
-      <Layout.Header>
-        <TabsHeader tabNav={tabNav} onChange={tabsChange} />
-      </Layout.Header>
-      <Layout className={clsx('collection-items-content')}>
-        <ItemsSider />
-        <ItemsContent />
+    <>
+      <Updater />
+      <Layout className={clsx('collection-items-layout')}>
+        <Layout.Header>
+          <TabsHeader tabNav={tabNav} onChange={tabsChange} />
+        </Layout.Header>
+        <Layout className={clsx('collection-items-content')}>
+          <ItemsSider />
+          <ItemsContent />
+        </Layout>
       </Layout>
-    </Layout>
+    </>
   );
 }
