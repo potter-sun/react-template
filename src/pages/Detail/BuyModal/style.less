@@ -1,0 +1,68 @@
+@import '../../../assets/theme/variable.less';
+.buy-modal {
+  .@{app-prefix}-modal-body {
+    padding: 8px 32px;
+    .@{app-prefix}-col-10 {
+      text-align: right;
+    }
+    .content-header,
+    .content-body {
+      border-bottom: 1px solid @border1;
+    }
+    .content-header {
+      padding: 16px 0;
+      line-height: 27px;
+    }
+    .content-body {
+      padding: 24px 0;
+      img.art {
+        width: 96px;
+        aspect-ratio: 1;
+      }
+      .info {
+        margin-left: 24px;
+      }
+      .mt-16 {
+        margin-top: 16px;
+      }
+      .royalties {
+        align-items: center;
+        svg {
+          margin-left: 6px;
+        }
+      }
+      .part-price {
+        align-items: flex-end;
+        justify-content: center;
+        .item-token {
+          width: 16px;
+          height: 16px;
+          margin-right: 4px;
+        }
+        .mt-2 {
+          margin-top: 2px;
+        }
+      }
+    }
+    .content-bottom {
+      padding: 20px 0;
+      .total-price {
+        justify-content: flex-end;
+        align-items: center;
+        .ml-6 {
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+  .@{app-prefix}-modal-footer {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0 40px;
+    .confirm-btn {
+      height: auto;
+      padding-left: 82px;
+      padding-right: 82px;
+    }
+  }
+}

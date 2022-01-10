@@ -1,0 +1,34 @@
+@import '../../assets/theme/variable.less';
+.detail-card {
+  width: 400px;
+  max-width: 100%;
+  padding: 24px;
+  .part {
+    margin-bottom: 40px;
+    .title {
+      color: @text1;
+      margin-bottom: 16px;
+      line-height: 27px;
+    }
+    p {
+      color: @text2;
+      display: flex;
+      justify-content: space-between;
+      line-height: 21px;
+      margin-bottom: 6px;
+      span {
+        font-size: 14px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mobile-detail-card {
+  width: auto;
+}

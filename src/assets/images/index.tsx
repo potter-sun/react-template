@@ -8,6 +8,7 @@ import { ReactComponent as AELF } from './AELF.svg';
 import collectionBadge from './collectionBadge.svg';
 import { ReactComponent as User } from './user.svg';
 import { ReactComponent as Menu } from './Menu.svg';
+import { ReactComponent as Clock } from './clock.svg';
 import { ReactComponent as Photo } from './photo.svg';
 import { ReactComponent as Arrow } from './arrow.svg';
 import { ReactComponent as Profile } from './profile.svg';
@@ -33,6 +34,7 @@ export {
   User,
   Menu,
   Arrow,
+  Clock,
   Frame,
   Photo,
   Create,

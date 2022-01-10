@@ -1,14 +1,14 @@
 @import '../../../../assets/theme/variable.less';
 
 .overlay-header {
-  .aelf-menu {
+  .@{app-prefix}-menu {
     cursor: default;
     border-radius: 12px;
     border: 1px solid @border1;
     background: @bg2;
     overflow: hidden;
     padding: 0;
-    .aelf-menu-item {
+    .@{app-prefix}-menu-item {
       display: flex;
       margin: 0;
       padding: 0 19px;
@@ -44,10 +44,10 @@
 }
 .overlay-wallet,
 .wallet-menu {
-  .aelf-menu {
+  .@{app-prefix}-menu {
     min-width: 304px;
     padding: 0 16px;
-    .aelf-menu-item {
+    .@{app-prefix}-menu-item {
       cursor: default;
       background: transparent;
       padding: 16px 0;
@@ -81,9 +81,9 @@
   }
   .balance-wrap {
     width: 100%;
-    .aelf-collapse {
+    .@{app-prefix}-collapse {
       background: transparent;
-      .aelf-collapse-item {
+      .@{app-prefix}-collapse-item {
         border: 1px solid @border1;
         overflow: hidden;
         border-radius: 12px;
@@ -127,15 +127,15 @@
       }
     }
     .token-balance {
-      .aelf-collapse-item-active {
-        svg.aelf-collapse-arrow {
+      .@{app-prefix}-collapse-item-active {
+        svg.@{app-prefix}-collapse-arrow {
           transform: rotate(180deg);
         }
       }
-      .aelf-collapse-header {
+      .@{app-prefix}-collapse-header {
         padding: 15px 16px;
       }
-      .aelf-collapse-content {
+      .@{app-prefix}-collapse-content {
         background: @bg3;
         border-color: @border1;
       }
@@ -177,7 +177,7 @@
           }
         }
       }
-      .aelf-collapse-content-box {
+      .@{app-prefix}-collapse-content-box {
         padding: 0;
       }
       .panel-body {
@@ -213,11 +213,12 @@
 }
 
 .mobile-wallet-menu {
-  .aelf-menu {
+  padding-bottom: 6.5714rem;
+  .@{app-prefix}-menu {
     background: transparent;
     border: none;
     padding: 0;
-    .aelf-menu-item {
+    .@{app-prefix}-menu-item {
       height: auto;
       padding: 1.1429rem 0 0.5714rem;
       margin: 0;
@@ -257,7 +258,7 @@
       }
     }
     .token-balance {
-      .aelf-collapse-item-active {
+      .@{app-prefix}-collapse-item-active {
         margin-bottom: 0.2857rem;
       }
       .panel-header {

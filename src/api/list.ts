@@ -2,16 +2,18 @@ import { API_REQ_FUNCTION } from './types';
 
 export const BASE_APIS = {};
 
-export const COLLECTIONS_ITEMS_APIS = {
-  GET_COLLECTIONS: '/api/getCollections.json',
+export const COLLECTIONS_APIS = {
+  GET_NFT_TYPES: '/mock/nft-types.json',
+  GET_COLLECTIONS: '/mock/getCollections.json',
 };
 
-export const COLLECTIONS_APIS = {
-  GET_COLLECTIONS: '/mock/getCollections.json',
+export const NFT_APIS = {
+  GET_NFT_INFO: '/mock/nft-infos/by-token-hash',
 };
 
 export const EXPAND_APIS = {
   collections: COLLECTIONS_APIS,
+  nft: NFT_APIS,
 };
 
 export type BASE_REQ_TYPES = {

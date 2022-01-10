@@ -1,0 +1,55 @@
+@import '../../assets/theme/variable.less';
+.recommend-panel {
+  padding: 24px;
+  .dot {
+    button,
+    li {
+      width: 0.5714rem !important;
+      height: 0.5714rem !important;
+      border-radius: 50% !important;
+    }
+    li {
+      border: 0.0714rem solid @border2 !important;
+    }
+    .slick-active {
+      background: @blue1 !important;
+      button {
+        background: @blue1 !important;
+      }
+    }
+  }
+}
+.mobile-recommend-panel {
+  padding: 1.1429rem;
+  .hidden {
+    overflow: hidden;
+  }
+  .@{app-prefix}-carousel {
+    width: 12.7857rem;
+    margin-top: 1.1429rem;
+    .dot {
+      bottom: 0;
+    }
+    .slick-list {
+      overflow: visible;
+    }
+    .slick-slider {
+      position: static !important;
+      padding-bottom: 1.7143rem;
+    }
+    .slick-slide {
+      padding-right: 1.0714rem;
+      overflow: hidden;
+    }
+  }
+  .btn-wrap {
+    margin-top: 1.7143rem;
+    display: flex;
+    justify-content: center;
+    Button {
+      font-size: 0.8571rem;
+      width: 8.0714rem;
+      height: 2.0714rem;
+    }
+  }
+}

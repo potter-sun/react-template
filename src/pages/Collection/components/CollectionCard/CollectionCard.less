@@ -3,20 +3,22 @@
 .collection-card {
   cursor: pointer;
   width: 416px;
+  max-width: 100%;
 
-  .aelf-card {
+  .@{app-prefix}-card {
     border-radius: 12px;
     background: @bg4;
     border: 1px solid @border1;
 
-    .aelf-card-cover {
+    .@{app-prefix}-card-cover {
       width: 416px;
+      max-width: 100%;
     }
-    .aelf-card-body {
+    .@{app-prefix}-card-body {
       padding: 0;
       margin: 0;
     }
-    .aelf-card-meta {
+    .@{app-prefix}-card-meta {
       height: 100%;
       position: relative;
       padding-top: 40px;
@@ -29,7 +31,7 @@
         padding: 0;
       }
 
-      .aelf-card-meta-avatar {
+      .@{app-prefix}-card-meta-avatar {
         width: 64px;
         height: 64px;
         padding: 0;
@@ -47,10 +49,10 @@
         }
       }
 
-      .aelf-card-meta-detail {
+      .@{app-prefix}-card-meta-detail {
         width: 100%;
 
-        .aelf-card-meta-title {
+        .@{app-prefix}-card-meta-title {
           margin: 0;
           .collection-title {
             position: relative;
@@ -78,7 +80,7 @@
           }
         }
 
-        .aelf-card-meta-description {
+        .@{app-prefix}-card-meta-description {
           margin: 20px 0 40px;
           padding: 0 calc((100% - 290px) / 2) 0;
           color: @text2;
@@ -91,11 +93,13 @@
 
 .mobile-collection-card {
   width: 24.5rem;
-  .aelf-card {
-    .aelf-card-cover {
+  max-width: 100%;
+  .@{app-prefix}-card {
+    .@{app-prefix}-card-cover {
       width: 24.5rem;
+      max-width: calc(100% + 2px);
     }
-    .aelf-card-meta .aelf-card-meta-avatar {
+    .@{app-prefix}-card-meta .@{app-prefix}-card-meta-avatar {
       width: 3.8571rem;
       height: 3.8571rem;
     }

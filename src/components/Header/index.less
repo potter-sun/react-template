@@ -1,6 +1,6 @@
 @import '../../assets/theme/variable.less';
 
-.aelf-marketplace-header {
+.@{app-prefix}-marketplace-header {
   // display: flex;
   z-index: 1;
   color: @text1;
@@ -40,7 +40,7 @@
       gap: 42.8px !important;
       display: flex;
       align-items: center;
-      .aelf-space-item {
+      .@{app-prefix}-space-item {
         width: 40px;
         height: 40px;
       }
@@ -56,13 +56,13 @@
   }
 }
 .overlay-header {
-  .aelf-dropdown-menu {
+  .@{app-prefix}-dropdown-menu {
     border-radius: 12px;
     border: 1px solid @border1;
     background: @bg2;
     overflow: hidden;
     padding: 0;
-    .aelf-dropdown-menu-item {
+    .@{app-prefix}-dropdown-menu-item {
       padding: 0 19px;
       min-width: 137px;
       min-height: 56px;
@@ -82,10 +82,10 @@
   }
 }
 .overlay-account {
-  .aelf-dropdown-menu {
+  .@{app-prefix}-dropdown-menu {
     // margin-top: -6px;
     transform: translateX(-5px);
-    .aelf-dropdown-menu-item {
+    .@{app-prefix}-dropdown-menu-item {
       height: 56px;
       padding: 0 24px 0 19px;
       span,
@@ -114,7 +114,7 @@
 .overlay-header .unconnected-menu {
   min-width: 304px;
   padding: 16px;
-  .aelf-dropdown-menu-item {
+  .@{app-prefix}-dropdown-menu-item {
     cursor: auto;
     padding: 0;
     border-bottom: 1px solid @border1;
@@ -150,7 +150,7 @@
     color: white;
     fill: white;
   }
-  .aelf-drawer-header {
+  .@{app-prefix}-drawer-header {
     z-index: 1;
     display: flex;
     height: 4.2857rem;
@@ -160,7 +160,7 @@
     box-shadow: 0px 4px 8px @box-shadow2;
     flex-direction: row-reverse;
     justify-content: space-between;
-    .aelf-drawer-extra {
+    .@{app-prefix}-drawer-extra {
       flex: 1;
       display: flex;
       align-items: center;
@@ -169,18 +169,18 @@
         height: 2.5rem;
       }
     }
-    .aelf-drawer-header-title {
+    .@{app-prefix}-drawer-header-title {
       flex: none;
     }
     .anticon-close svg {
       width: 1.2857rem;
       height: 1.2857rem;
     }
-    .aelf-drawer-close {
+    .@{app-prefix}-drawer-close {
       margin-right: 0.5rem;
     }
   }
-  .aelf-drawer-body {
+  .@{app-prefix}-drawer-body {
     position: relative;
     background: @bg1;
     padding-top: 0;
@@ -252,7 +252,8 @@
     padding-bottom: 0.5714rem;
   }
   .return-wrap {
-    position: absolute;
+    background: @bg2;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;

@@ -1,56 +1,76 @@
-[
-  {
-    "title": "Virtual Worlds",
-    "key": "VW",
-    "icon": "http://localhost:3000/mock/images/Vector.svg",
-    "collectionList": [
-      {
-        "id": "RAZIEL",
-        "title": "RAZIEL",
-        "creator": "influence",
-        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
-        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
-        "avatar": "http://localhost:3000/mock/images/avatar.svg"
+{
+  "items": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "chainId": 99271,
+      "symbol": "nft",
+      "protocolName": "Ra",
+      "nftType": "Virtual Worlds",
+      "totalSupply": 100000,
+      "background": "http://localhost:3000/mock/images/RAZIEL.svg",
+      "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
+      "creator": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afb6",
+        "userName": "influence",
+        "address": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+        "profileImage": "http://localhost:3000/mock/images/avatar.svg"
       },
-      {
-        "id": "RAZIEL1",
-        "title": "RAZIEL1",
-        "creator": "influence",
-        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
-        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
-        "avatar": "http://localhost:3000/mock/images/avatar.svg"
-      },
-      {
-        "id": "RAZIEL2",
-        "title": "RAZIEL2",
-        "creator": "influence",
-        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
-        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
-        "avatar": "http://localhost:3000/mock/images/avatar.svg"
-      },
-      {
-        "id": "RAZIEL3",
-        "title": "RAZIEL3",
-        "creator": "influence",
-        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
-        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
-        "avatar": "http://localhost:3000/mock/images/avatar.svg"
+      "isBurnable": true,
+      "issueChainId": 123,
+      "baseUri": "",
+      "isTokenIdReuse": false,
+      "metadata": {
+        "meta1": "value1",
+        "meta2": "value2"
       }
-    ]
-  },
-  {
-    "title": "Virtual Worlds1",
-    "key": "VW1",
-    "icon": "http://localhost:3000/mock/images/Vector.svg",
-    "collectionList": [
-      {
-        "id": "RAZIEL",
-        "title": "RAZIEL",
-        "creator": "influence",
-        "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
-        "background": "http://localhost:3000/mock/images/RAZIEL.svg",
-        "avatar": "http://localhost:3000/mock/images/avatar.svg"
+    },
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "chainId": 99271,
+      "symbol": "nft",
+      "protocolName": "Ra1",
+      "nftType": "Virtual Worlds",
+      "totalSupply": 100000,
+      "background": "http://localhost:3000/mock/images/RAZIEL.svg",
+      "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
+      "creator": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afb6",
+        "userName": "influence",
+        "address": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+        "profileImage": "http://localhost:3000/mock/images/avatar.svg"
+      },
+      "isBurnable": true,
+      "issueChainId": 123,
+      "baseUri": "",
+      "isTokenIdReuse": false,
+      "metadata": {
+        "meta1": "value1",
+        "meta2": "value2"
       }
-    ]
-  }
-]
+    },
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "chainId": 99271,
+      "symbol": "nft",
+      "protocolName": "Ra2",
+      "nftType": "Virtual Worlds",
+      "totalSupply": 100000,
+      "background": "http://localhost:3000/mock/images/RAZIEL.svg",
+      "description": "influence is a space strategy MMO, set in a realistic asteroid belt the Adalia system,after an i...",
+      "creator": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afb6",
+        "userName": "influence",
+        "address": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+        "profileImage": "http://localhost:3000/mock/images/avatar.svg"
+      },
+      "isBurnable": true,
+      "issueChainId": 123,
+      "baseUri": "",
+      "isTokenIdReuse": false,
+      "metadata": {
+        "meta1": "value1",
+        "meta2": "value2"
+      }
+    }
+  ]
+}

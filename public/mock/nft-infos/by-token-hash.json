@@ -1,0 +1,48 @@
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "nftTokenId": 100,
+  "minter": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+  "owners": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afb6",
+    "userName": "3fa85f64-5717-4562-b3fc-2c963f66afb6",
+    "address": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+    "profileImage": "http://localhost:3000/mock/images/avatar.svg"
+  },
+  "uri": "",
+  "alias": "",
+  "quantity": 10000,
+  "totalQuantity": 100000,
+  "tokenHash": "6a6FaC8c710e53c4B2c2F96477119dA",
+  "averagePrice": 1.45,
+  "latestPrice": 10.5,
+  "latestListingTime": 0,
+  "metadata": {
+    "meta1": "value1",
+    "meta2": "value2"
+  },
+  "nftProtocol": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "chainId": 99271,
+    "symbol": "nft",
+    "protocolName": "Ra",
+    "nftType": "Virtual Worlds",
+    "totalSupply": 100000,
+    "creator": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+    "isBurnable": true,
+    "issueChainId": 1234,
+    "baseUri": "",
+    "isTokenIdReuse": false,
+    "metadata": {
+      "meta1": "value1",
+      "meta2": "value2"
+    }
+  },
+  "saleTokens": [
+    {
+      "address": "AD0b006a6FaC8c710e53c4B2c2F96477119dA36c",
+      "symbol": "ELF",
+      "decimals": 8,
+      "id": "39feadae-60e4-2d07-455b-54debad09ef9"
+    }
+  ]
+}

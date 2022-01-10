@@ -104,7 +104,7 @@ export default function Settings() {
   const uploadButton = uploading ? <LoadingOutlined /> : <Photo width={96} hanging={96} />;
 
   return (
-    <div className={clsx('settings', isMobile && 'mobile-settings')}>
+    <div className={clsx('settings flex', isMobile && 'mobile-settings')}>
       <div className="main-container">
         <h1 className="settings-main-title weight-600">Profile Settings</h1>
         <Form className="settings-wrap" name="userInfo">

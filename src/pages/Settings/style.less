@@ -1,9 +1,10 @@
 @import '../../assets/theme/variable.less';
 
 .settings {
+  width: 100%;
+  justify-content: center;
   .main-container {
     max-width: 760px;
-    margin: 0 auto;
     padding-top: 80px;
     .settings-main-title {
       color: @text1;
@@ -24,7 +25,7 @@
           margin-left: 4px;
         }
       }
-      .aelf-upload {
+      .@{app-prefix}-upload {
         width: auto;
         height: auto;
         background: transparent;
@@ -42,7 +43,7 @@
       }
       .banner-upload {
         width: 546px;
-        height: 96px;
+        aspect-ratio: 546/96;
         background: @bg3;
         .ant-upload-drag-container {
           cursor: pointer;
@@ -71,21 +72,21 @@
         padding: 16px;
         border-color: @border1;
         &:hover,
-        &.aelf-input-affix-wrapper-focused {
+        &.@{app-prefix}-input-affix-wrapper-focused {
           background: transparent;
           border-color: @border2;
           box-shadow: 0px 0px 12px @box-shadow1;
         }
-        .aelf-input-show-count-suffix {
+        .@{app-prefix}-input-show-count-suffix {
           color: @text4;
         }
-        .aelf-input {
+        .@{app-prefix}-input {
           font-size: 16px;
           border-radius: 0;
           background: transparent;
         }
-        .aelf-input:hover,
-        .aelf-input:focus {
+        .@{app-prefix}-input:hover,
+        .@{app-prefix}-input:focus {
           box-shadow: none;
         }
       }
@@ -116,11 +117,11 @@
         width: 180px;
         height: 56px;
       }
-      .aelf-form-item-explain {
+      .@{app-prefix}-form-item-explain {
         color: @red1;
         font-size: 14px;
         font-weight: 500;
-        .aelf-form-item-explain-error {
+        .@{app-prefix}-form-item-explain-error {
           margin-top: 2px;
         }
       }
@@ -130,8 +131,10 @@
 
 .mobile-settings {
   .main-container {
-    max-width: 23.3571rem;
+    max-width: 100%;
+    padding: 0 1.7143rem;
     padding-top: 2.8571rem;
+    padding-bottom: 0.875rem;
     .settings-main-title {
       font-size: 2.1429rem;
       line-height: 3.2143rem;
@@ -147,7 +150,7 @@
           margin-left: 0.2857rem;
         }
       }
-      .aelf-upload {
+      .@{app-prefix}-upload {
         width: 5.1429rem;
         height: 5.1429rem;
         .avatar {
@@ -162,9 +165,10 @@
       .username-input,
       .wallet-address {
         width: 23.3571rem;
-        height: 4.0714rem;
+        max-width: 100%;
+        aspect-ratio: 327/57;
       }
-      .aelf-form-item-explain .aelf-form-item-explain-error {
+      .@{app-prefix}-form-item-explain .@{app-prefix}-form-item-explain-error {
         font-size: 0.8571rem;
       }
       .settings-btn-wrap {
@@ -172,6 +176,7 @@
       }
       .settings-btn {
         width: 11.1429rem;
+        max-width: 100%;
         height: 4rem;
       }
     }

@@ -12,11 +12,12 @@ export interface TabsHeaderProps {
   tabNav: TabNavType[];
   onChange?: (v: string) => void;
 }
-export default function TabsHeader({ tabNav, onChange, ...props }: TabsHeaderProps & TabsProps) {
+export default function TabsHeader({ tabNav, activeKey, onChange, ...props }: TabsHeaderProps & TabsProps) {
   const isMobile = useMobile();
   return (
     <Tabs
-      defaultActiveKey={tabNav?.[0]?.key}
+      // defaultActiveKey={tabNav?.[0]?.key}
+      activeKey={activeKey || tabNav?.[0]?.key}
       centered
       className={clsx('tabs-header', isMobile && 'mobile-tabs-header')}
       onChange={onChange}
