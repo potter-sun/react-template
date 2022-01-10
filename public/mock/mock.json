@@ -1,0 +1,55 @@
+{
+  "items|1-20": [
+    {
+      "id": "@guid",
+      "nftTokenId": "@id",
+      "minter": "@guid",
+      "owners": {
+        "id": "@guid",
+        "userName": "@name(true)",
+        "address": "@guid()",
+        "profileImage": "https://lh3.googleusercontent.com/JudZm9_Rltz2jCPP2-bqQallCgQZCEGI1ml5xNs7ET9FofXSlGbDbCkmwSmBguXCcv3PlBX7awfmC2VRCtRd72yYV1PdLjiovnxSaw=w600"
+      },
+      "uri": "",
+      "alias": "",
+      "quantity": 10000,
+      "totalQuantity": 100000,
+      "tokenHash": "@guid",
+      "averagePrice|123.10": 1.123,
+      "latestPrice|123.10": 1.123,
+      "latestListingTime": 0,
+
+      "metadata": {
+        "meta1": "value1",
+        "meta2": "value2"
+      },
+
+      "nftProtocol": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "chainId": 99271,
+        "symbol": "nft",
+        "protocolName": "@name",
+        "nftType": "Virtual Worlds",
+        "totalSupply": 100000,
+        "creator": "@guid",
+        "isBurnable": true,
+        "issueChainId": 42,
+
+        "baseUri": "",
+        "isTokenIdReuse": false,
+        "metadata": {
+          "meta1": "value1",
+          "meta2": "value2"
+        }
+      },
+      "saleTokens": [
+        {
+          "address": "@guid",
+          "symbol": "ELF",
+          "decimals": 8,
+          "id": "@guid"
+        }
+      ]
+    }
+  ]
+}

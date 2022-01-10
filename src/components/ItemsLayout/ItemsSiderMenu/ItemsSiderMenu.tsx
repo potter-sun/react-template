@@ -10,7 +10,7 @@ import { FilterType, RangeType } from '../types';
 import './ItemsSiderMenu.less';
 
 export default function ItemsSiderMenu() {
-  const [{ filterSelect, filterList }] = useLayoutItems();
+  const [{ filterSelect }] = useLayoutItems();
   const handleClick = useCallback((v) => {
     console.log(v);
   }, []);

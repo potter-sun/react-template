@@ -1,26 +1,15 @@
-import { Select, Space } from 'antd';
+import { Space } from 'antd';
+import BaseSelect from 'components/BaseSelect';
 import BaseTag from 'components/BaseTag';
-import { useLayoutItems } from 'contexts/useItemsLayout';
+import { SORT_BY, useLayoutItems } from 'contexts/useItemsLayout';
 import { basicLayoutView } from 'contexts/useItemsLayout/actions';
 import { useLayoutDispatch } from 'contexts/useItemsLayout/hooks';
 import { useCallback, useMemo } from 'react';
 import { RangeType } from '../types';
 
 export default function TopFilterButton() {
-  const [{ filterSelect }] = useLayoutItems();
+  const [{ filterSelect, selectList }] = useLayoutItems();
   const LayoutDispatch = useLayoutDispatch();
-  const PriceData = useMemo(
-    () => [
-      { key: 'price-ascend', label: 'Price: Low to High' },
-      { key: 'price-descend', label: 'Price: High to Low' },
-      { key: 'Recently Listed', label: 'Recently Listed' },
-    ],
-    [],
-  );
-
-  const handleChange = useCallback((v, option) => {
-    console.log(v, option);
-  }, []);
 
   const tagClose = useCallback(
     (e, key, v) => {
@@ -37,22 +26,30 @@ export default function TopFilterButton() {
   const handleClear = useCallback(() => {
     LayoutDispatch(basicLayoutView.setFilterSelectList.actions(null));
   }, [LayoutDispatch]);
+
   const isEmpty = useMemo(() => {
     if (!filterSelect) return true;
     return Object.values(filterSelect).every((v) => v.length === 0);
   }, [filterSelect]);
+
+  const handleChange = useCallback(
+    (v, option) => {
+      console.log(v, option);
+      LayoutDispatch(
+        basicLayoutView.setFilterSelectList.actions(Object.assign(filterSelect ?? {}, { [SORT_BY]: [v] })),
+      );
+    },
+    [LayoutDispatch, filterSelect],
+  );
   return (
     <Space className="top-filter-button" size={16}>
-      <Select defaultValue="price-ascend" style={{ width: 260 }} onChange={handleChange}>
-        {PriceData?.map((item) => (
-          <Select.Option key={item.key} value={item.key}>
-            {item.label}
-          </Select.Option>
-        ))}
-      </Select>
+      {selectList && (
+        <BaseSelect defaultValue={filterSelect?.[SORT_BY]} dataSource={selectList} onChange={handleChange} />
+      )}
 
       {filterSelect &&
         Object.entries(filterSelect).map(([key, value]) => {
+          if (key === SORT_BY) return null;
           return value.map((v: string | RangeType) => (
             <BaseTag
               key={`${key}/${v}`}

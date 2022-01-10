@@ -20,6 +20,7 @@
     "craco-less": "^1.20.0",
     "ethers": "^5.5.2",
     "i18next": "^21.6.0",
+    "query-string": "^7.0.1",
     "react": "^17.0.2",
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
@@ -37,6 +38,8 @@
   },
   "scripts": {
     "start": "cross-env REACT_APP_PREFIX=aelf craco start",
+    "dev": "cross-env REACT_APP_API_ENV=dev REACT_APP_PREFIX=aelf craco start",
+    "dev:mobile": "cross-env REACT_APP_MOBILE=true REACT_APP_API_ENV=dev REACT_APP_PREFIX=aelf craco start",
     "build": "cross-env REACT_APP_PREFIX=aelf craco build",
     "test": "cross-env REACT_APP_PREFIX=aelf craco test",
     "eject": "cross-env REACT_APP_PREFIX=aelf craco eject"

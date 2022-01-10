@@ -38,21 +38,29 @@
   .value {
     margin-top: 4px;
   }
-
+  .items-title,
+  .items-price {
+    span {
+      display: inline-block;
+    }
+  }
   .items-price {
     text-align: right;
-    .price {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
-      padding-left: 28px;
-    }
-    .price.usd {
-      background: url('../../assets/images/prefixU.svg') left center no-repeat;
-    }
-    .price.elf {
-      background: url('../../assets/images/prefixELF.svg') left center no-repeat;
-    }
+  }
+  .price {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 20px;
+    background-size: 16px;
+    background-position: left center;
+    background-repeat: no-repeat;
+  }
+  .price.usd {
+    background-image: url('../../assets/images/prefixU.svg');
+  }
+  .price.elf {
+    background-image: url('../../assets/images/prefixELF.svg');
   }
   .numbering {
     font-weight: 600;
@@ -66,8 +74,21 @@
       border-radius: 8px;
     }
   }
-
-  .card-cover {
-    border-radius: 12px;
+  .items-last-price {
+    & > .text {
+      font-size: 14px;
+      line-height: 21px;
+      color: @text2;
+    }
+    & > .price {
+      font-size: 12px;
+      line-height: 18px;
+      color: @text1;
+      display: inline-block;
+      padding-left: 14px;
+      margin-left: 6px;
+      background-size: 12px 12px;
+      margin-top: 6px;
+    }
   }
 }

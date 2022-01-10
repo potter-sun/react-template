@@ -1,10 +1,10 @@
 import { Divider, ListProps, Spin } from 'antd';
 import { ReactNode, CSSProperties } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-
+import Loading from '../LoadingMore';
 export interface InfiniteListProps<T> {
   id?: string;
-  dataSource: T[];
+  dataLength: number;
   loadMoreData?: (update?: boolean) => void;
   className?: string;
   style?: CSSProperties;
@@ -15,7 +15,7 @@ export interface InfiniteListProps<T> {
 export default function InfiniteList<T>({
   id = 'scrollableDiv',
   loadMoreData,
-  dataSource,
+  dataLength,
   className,
   style,
   loaded = true,
@@ -26,15 +26,14 @@ export default function InfiniteList<T>({
     <div id={id} style={style} className={className}>
       <InfiniteScroll
         scrollableTarget={id}
-        dataLength={dataSource.length}
+        dataLength={dataLength}
         next={() => {
-          console.log('====next');
           if (loaded) return;
           loadMoreData?.();
         }}
         hasMore={!loaded}
         // TODO:loader loading & endMessage
-        loader={<Spin />}
+        loader={<Loading />}
         endMessage={showEndMessage && <Divider plain>loaded</Divider>}>
         {children}
       </InfiniteScroll>
